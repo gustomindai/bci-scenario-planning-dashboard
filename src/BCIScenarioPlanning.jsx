@@ -813,6 +813,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     ))}
                                 </ul>
                             </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(1)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 2: Scanning for Signals
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
                     )}
 
@@ -1196,6 +1207,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </ul>
                                     </div>
                                 </div>
+                            </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(2)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 3: Impact-Uncertainty Matrix
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
                             </div>
                         </div>
                     )}
@@ -1668,6 +1690,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         ))}
                                 </div>
                             </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(3)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 4: Mapping Driver Connections
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
                     )}
 
@@ -1879,6 +1912,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
                                         ))}
                                 </div>
+                            </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(4)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 5: Choosing the Scenario Axes
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
                             </div>
                         </div>
                     )}
@@ -2137,6 +2181,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     <span className="font-semibold text-purple-300">Next:</span> In Stages 6-8, we'll build four scenario narratives from these two axes,
                                     assess their impact on our business, and deliver a verdict on strategic preparedness.
                                 </p>
+                            </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(5)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 6: Crafting Scenario Narratives
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
                             </div>
                         </div>
                     )}
@@ -2608,6 +2663,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     and deliver a final verdict on strategic preparedness.
                                 </p>
                             </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(6)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 7: Assess the Impact of Scenarios
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
+                            </div>
                         </div>
                     )}
 
@@ -2659,6 +2725,51 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 </div>
                             </div>
 
+                            {/* Pedagogical Note: Early Warning Indicators */}
+                            <div className="bg-gradient-to-br from-purple-900/40 to-blue-900/40 p-6 rounded-xl border-2 border-purple-400/30">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-purple-500 p-3 rounded-xl flex-shrink-0">
+                                        <AlertCircle className="w-8 h-8" />
+                                    </div>
+                                    <div className="flex-1">
+                                        <div className="flex items-center gap-3 mb-3">
+                                            <h3 className="text-2xl font-bold text-purple-300">Pedagogical Note: Early Warning Indicators</h3>
+                                            <span className="px-3 py-1 bg-purple-500/30 rounded-full text-xs font-semibold text-purple-200 border border-purple-400/50">
+                                                Topic 4 Preview
+                                            </span>
+                                        </div>
+                                        <p className="text-purple-100 mb-4">
+                                            While we explore Early Warning Indicators (EWIs) in depth in <span className="font-bold text-purple-200">Topic 4: Strategy Development</span>, they are included here to show how scenario planning directly connects to strategic action. EWIs answer a critical question: <span className="italic font-semibold text-purple-200">"How will we know when the future is starting to arrive?"</span>
+                                        </p>
+                                        <div className="bg-black/30 p-4 rounded-lg mb-4">
+                                            <h4 className="font-bold text-purple-200 mb-2">What are Early Warning Indicators?</h4>
+                                            <p className="text-sm text-purple-100 mb-3">
+                                                EWIs are <span className="font-semibold">specific, measurable metrics</span> that signal which scenario is beginning to emerge in reality. They are the triggers for your bigger, long-term strategic moves.
+                                            </p>
+                                            <div className="grid md:grid-cols-2 gap-3 text-sm">
+                                                <div className="bg-black/20 p-3 rounded">
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0" />
+                                                        <span className="font-semibold text-purple-200">Good EWI Example:</span>
+                                                    </div>
+                                                    <p className="text-purple-100 pl-6">"FDA approval rate for BCI devices exceeds <span className="font-bold">20 per year</span> for two consecutive years"</p>
+                                                </div>
+                                                <div className="bg-black/20 p-3 rounded">
+                                                    <div className="flex items-center gap-2 mb-2">
+                                                        <XCircle className="w-4 h-4 text-red-400 flex-shrink-0" />
+                                                        <span className="font-semibold text-purple-200">Poor EWI Example:</span>
+                                                    </div>
+                                                    <p className="text-purple-100 pl-6">"Increased competition in the market" <span className="italic">(too vague, not measurable)</span></p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p className="text-sm text-purple-200 italic">
+                                            Below, you will see EWIs defined for each scenario. In Topic 4, you will learn how to integrate these into a comprehensive strategy development plan.
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+
                             {/* Scenario-by-Scenario Analysis */}
                             <div className="space-y-6">
                                 <h3 className="text-2xl font-bold text-center text-orange-300">Impact Analysis by Scenario</h3>
@@ -2679,8 +2790,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         {/* External Impact */}
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-blue-300 flex items-center gap-2 cursor-help">
-                                                    <Globe className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-blue-300 flex items-center gap-2 cursor-help">
+                                                    <Globe className="w-6 h-6" />
                                                     External Impact: Industry Dynamics
                                                     <span className="ml-1 text-xs text-blue-400">ⓘ</span>
                                                 </h5>
@@ -2691,7 +2802,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-blue-200 mb-3">Porter's 6 Forces Analysis:</p>
+                                                <p className="text-base font-bold text-blue-200 mb-3">Porter's 6 Forces Analysis:</p>
 
                                                 {/* Radar Chart */}
                                                 <div className="flex justify-center mb-4">
@@ -2841,8 +2952,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                             {/* Key Opportunities */}
                                             <div className="bg-green-900/30 p-4 rounded-lg border border-green-500/30">
-                                                <p className="text-xs font-semibold text-green-300 mb-2 flex items-center gap-2">
-                                                    <CheckCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-green-300 mb-2 flex items-center gap-2">
+                                                    <CheckCircle className="w-5 h-5" />
                                                     Key Opportunities
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-green-100">
@@ -2854,8 +2965,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                             {/* Key Threats */}
                                             <div className="bg-red-900/30 p-4 rounded-lg border border-red-500/30">
-                                                <p className="text-xs font-semibold text-red-300 mb-2 flex items-center gap-2">
-                                                    <XCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-red-300 mb-2 flex items-center gap-2">
+                                                    <XCircle className="w-5 h-5" />
                                                     Key Threats
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-red-100">
@@ -2869,8 +2980,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         {/* Internal Impact */}
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-blue-300 flex items-center gap-2 cursor-help">
-                                                    <Shield className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-blue-300 flex items-center gap-2 cursor-help">
+                                                    <Shield className="w-6 h-6" />
                                                     Internal Impact: Our Capabilities
                                                     <span className="ml-1 text-xs text-blue-400">ⓘ</span>
                                                 </h5>
@@ -2882,8 +2993,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                             {/* Capability Assessment */}
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-blue-200 mb-3">Capability Re-evaluation:
-                                                    <span className="ml-2 text-blue-300 italic text-[10px]">(Hover over bars for interpretation)</span>
+                                                <p className="text-base font-bold text-blue-200 mb-3">Capability Re-evaluation:
+                                                    <span className="ml-2 text-blue-300 italic text-xs">(Hover over bars for interpretation)</span>
                                                 </p>
                                                 <div className="space-y-4">
                                                     <div className="group relative bg-gray-800/40 p-3 rounded-lg border border-gray-700/30">
@@ -2981,10 +3092,10 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                             {/* Strengths/Weaknesses Changes */}
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <div className="group relative mb-2">
-                                                    <p className="text-xs font-semibold text-blue-200 cursor-help inline-flex items-center gap-1">
+                                                <div className="group relative mb-4">
+                                                    <p className="text-base font-bold text-blue-200 cursor-help inline-flex items-center gap-2">
                                                         Strategic Position Shifts:
-                                                        <span className="text-[10px] text-blue-400">ⓘ</span>
+                                                        <span className="text-xs text-blue-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
                                                     <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
@@ -2999,6 +3110,37 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="flex items-start gap-2">
                                                         <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                                                         <p className="text-blue-100"><span className="font-semibold">New Strength:</span> Hospital relationships become most valuable asset</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <AlertTriangle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-blue-100"><span className="font-semibold">Portfolio Imbalance:</span> Cognitive enhancement (20% revenue) and AI-Brain integration (10% revenue) divisions become marginalized as medical invasive market dominates</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-blue-100"><span className="font-semibold">Medical Division Leverage:</span> Our 70% revenue medical BCI division perfectly positioned to capitalize on this scenario</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Early Warning Indicators */}
+                                            <div className="mt-6 bg-blue-950/50 p-5 rounded-lg border-2 border-blue-400/40">
+                                                <h5 className="font-bold text-blue-200 mb-3 flex items-center gap-2">
+                                                    <AlertCircle className="w-5 h-5" />
+                                                    Early Warning Indicators: Triggers for "The Slow Lane"
+                                                </h5>
+                                                <p className="text-xs text-blue-200 mb-4 italic">This scenario emerges when a convergence of 2-3 indicators reaches their thresholds:</p>
+                                                <div className="space-y-3 text-sm">
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-blue-200 mb-1">Signal 1 (Regulatory Pace):</p>
+                                                        <p className="text-blue-100">FDA approval rate for new invasive BCI devices remains <span className="font-bold">below 15 per year</span> for three consecutive years (2025-2027).</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-blue-200 mb-1">Signal 2 (Market Dominance):</p>
+                                                        <p className="text-blue-100">Medical/therapeutic invasive BCIs maintain <span className="font-bold">over 80% market share</span> of total BCI revenue by 2026.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-blue-200 mb-1">Signal 3 (Consumer Stagnation):</p>
+                                                        <p className="text-blue-100">Non-invasive consumer BCI adoption remains <span className="font-bold">below 5 million active users</span> globally by 2027.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3022,8 +3164,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         {/* External Impact */}
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-orange-300 flex items-center gap-2 cursor-help">
-                                                    <Globe className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-orange-300 flex items-center gap-2 cursor-help">
+                                                    <Globe className="w-6 h-6" />
                                                     External Impact: Industry Dynamics
                                                     <span className="ml-1 text-xs text-orange-400">ⓘ</span>
                                                 </h5>
@@ -3034,7 +3176,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-orange-200 mb-3">Porter's 6 Forces Analysis:</p>
+                                                <p className="text-base font-bold text-orange-200 mb-3">Porter's 6 Forces Analysis:</p>
 
                                                 {/* Radar Chart */}
                                                 <div className="flex justify-center mb-4">
@@ -3183,8 +3325,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-green-900/30 p-4 rounded-lg border border-green-500/30">
-                                                <p className="text-xs font-semibold text-green-300 mb-2 flex items-center gap-2">
-                                                    <CheckCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-green-300 mb-2 flex items-center gap-2">
+                                                    <CheckCircle className="w-5 h-5" />
                                                     Opportunities
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-green-100">
@@ -3195,8 +3337,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-red-900/30 p-4 rounded-lg border border-red-500/30">
-                                                <p className="text-xs font-semibold text-red-300 mb-2 flex items-center gap-2">
-                                                    <XCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-red-300 mb-2 flex items-center gap-2">
+                                                    <XCircle className="w-5 h-5" />
                                                     Threats
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-red-100">
@@ -3210,8 +3352,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         {/* Internal Impact */}
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-orange-300 flex items-center gap-2 cursor-help">
-                                                    <Shield className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-orange-300 flex items-center gap-2 cursor-help">
+                                                    <Shield className="w-6 h-6" />
                                                     Internal Impact: Our Capabilities
                                                     <span className="ml-1 text-xs text-orange-400">ⓘ</span>
                                                 </h5>
@@ -3222,8 +3364,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-orange-200 mb-3">Capability Re-evaluation:
-                                                    <span className="ml-2 text-orange-300 italic text-[10px]">(Hover over bars for interpretation)</span>
+                                                <p className="text-base font-bold text-orange-200 mb-3">Capability Re-evaluation:
+                                                    <span className="ml-2 text-orange-300 italic text-xs">(Hover over bars for interpretation)</span>
                                                 </p>
                                                 <div className="space-y-4">
                                                     <div className="group relative bg-gray-800/40 p-3 rounded-lg border border-gray-700/30">
@@ -3320,10 +3462,10 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <div className="group relative mb-2">
-                                                    <p className="text-xs font-semibold text-orange-200 cursor-help inline-flex items-center gap-1">
+                                                <div className="group relative mb-4">
+                                                    <p className="text-base font-bold text-orange-200 cursor-help inline-flex items-center gap-2">
                                                         Strategic Position Shifts:
-                                                        <span className="text-[10px] text-orange-400">ⓘ</span>
+                                                        <span className="text-xs text-orange-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
                                                     <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
@@ -3338,6 +3480,37 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="flex items-start gap-2">
                                                         <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                                                         <p className="text-orange-100"><span className="font-semibold">Opportunity:</span> Quality becomes key differentiator in chaotic market</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-orange-100"><span className="font-semibold">Cognitive Enhancement Boom:</span> Offshore markets enable rapid commercialization of our 20% revenue cognitive enhancement division—no FDA constraints</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <AlertTriangle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-orange-100"><span className="font-semibold">Regulatory Expertise Devalued:</span> FDA mastery (our medical division's core strength) becomes liability in lightly-regulated offshore markets</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Early Warning Indicators */}
+                                            <div className="mt-6 bg-orange-950/50 p-5 rounded-lg border-2 border-orange-400/40">
+                                                <h5 className="font-bold text-orange-200 mb-3 flex items-center gap-2">
+                                                    <AlertCircle className="w-5 h-5" />
+                                                    Early Warning Indicators: Triggers for "The Wild West"
+                                                </h5>
+                                                <p className="text-xs text-orange-200 mb-4 italic">This scenario emerges when a convergence of 3 indicators reaches their thresholds:</p>
+                                                <div className="space-y-3 text-sm">
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-orange-200 mb-1">Signal 1 (Regulatory Fragmentation):</p>
+                                                        <p className="text-orange-100">More than <span className="font-bold">10 countries</span> establish BCI markets with minimal safety requirements (below FDA equivalency) by 2026.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-orange-200 mb-1">Signal 2 (Offshore Investment Surge):</p>
+                                                        <p className="text-orange-100">Venture capital investment in non-medical consumer BCIs outside the US/EU exceeds <span className="font-bold">$15B annually</span> by 2027.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-orange-200 mb-1">Signal 3 (Market Velocity):</p>
+                                                        <p className="text-orange-100">Time-to-market for new BCI products in offshore jurisdictions averages <span className="font-bold">under 18 months</span> vs. 5+ years in FDA-regulated markets.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3360,8 +3533,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-purple-300 flex items-center gap-2 cursor-help">
-                                                    <Globe className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-purple-300 flex items-center gap-2 cursor-help">
+                                                    <Globe className="w-6 h-6" />
                                                     External Impact: Industry Dynamics
                                                     <span className="ml-1 text-xs text-purple-400">ⓘ</span>
                                                 </h5>
@@ -3372,7 +3545,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-purple-200 mb-3">Porter's 6 Forces Analysis:</p>
+                                                <p className="text-base font-bold text-purple-200 mb-3">Porter's 6 Forces Analysis:</p>
 
                                                 {/* Radar Chart */}
                                                 <div className="flex justify-center mb-4">
@@ -3533,8 +3706,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-green-900/30 p-4 rounded-lg border border-green-500/30">
-                                                <p className="text-xs font-semibold text-green-300 mb-2 flex items-center gap-2">
-                                                    <CheckCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-green-300 mb-2 flex items-center gap-2">
+                                                    <CheckCircle className="w-5 h-5" />
                                                     Opportunities
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-green-100">
@@ -3545,8 +3718,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-red-900/30 p-4 rounded-lg border border-red-500/30">
-                                                <p className="text-xs font-semibold text-red-300 mb-2 flex items-center gap-2">
-                                                    <XCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-red-300 mb-2 flex items-center gap-2">
+                                                    <XCircle className="w-5 h-5" />
                                                     Threats
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-red-100">
@@ -3559,8 +3732,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-purple-300 flex items-center gap-2 cursor-help">
-                                                    <Shield className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-purple-300 flex items-center gap-2 cursor-help">
+                                                    <Shield className="w-6 h-6" />
                                                     Internal Impact: Our Capabilities
                                                     <span className="ml-1 text-xs text-purple-400">ⓘ</span>
                                                 </h5>
@@ -3571,8 +3744,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-purple-200 mb-3">Capability Re-evaluation:
-                                                    <span className="ml-2 text-purple-300 italic text-[10px]">(Hover over bars for interpretation)</span>
+                                                <p className="text-base font-bold text-purple-200 mb-3">Capability Re-evaluation:
+                                                    <span className="ml-2 text-purple-300 italic text-xs">(Hover over bars for interpretation)</span>
                                                 </p>
                                                 <div className="space-y-4">
                                                     <div className="group relative bg-gray-800/40 p-3 rounded-lg border border-gray-700/30">
@@ -3669,10 +3842,10 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <div className="group relative mb-2">
-                                                    <p className="text-xs font-semibold text-purple-200 cursor-help inline-flex items-center gap-1">
+                                                <div className="group relative mb-4">
+                                                    <p className="text-base font-bold text-purple-200 cursor-help inline-flex items-center gap-2">
                                                         Strategic Position Shifts:
-                                                        <span className="text-[10px] text-purple-400">ⓘ</span>
+                                                        <span className="text-xs text-purple-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
                                                     <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
@@ -3687,6 +3860,37 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="flex items-start gap-2">
                                                         <AlertTriangle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
                                                         <p className="text-purple-100"><span className="font-semibold">Innovation Risk:</span> Culture may become risk-averse and slow</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <AlertTriangle className="w-4 h-4 text-yellow-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-purple-100"><span className="font-semibold">Innovation Frozen:</span> AI-Brain integration (10% revenue) and cognitive enhancement (20% revenue) research stifled by heavy regulation</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-purple-100"><span className="font-semibold">Medical Division Dominance:</span> 70% revenue medical BCI division thrives with established regulatory pathways and high barriers to entry</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Early Warning Indicators */}
+                                            <div className="mt-6 bg-purple-950/50 p-5 rounded-lg border-2 border-purple-400/40">
+                                                <h5 className="font-bold text-purple-200 mb-3 flex items-center gap-2">
+                                                    <AlertCircle className="w-5 h-5" />
+                                                    Early Warning Indicators: Triggers for "The Fortress"
+                                                </h5>
+                                                <p className="text-xs text-purple-200 mb-4 italic">This scenario emerges when a convergence of 3 indicators reaches their thresholds:</p>
+                                                <div className="space-y-3 text-sm">
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-purple-200 mb-1">Signal 1 (Regulatory Tightening):</p>
+                                                        <p className="text-purple-100">More than <span className="font-bold">5 major jurisdictions</span> (US, EU, China, Japan, etc.) implement BCI-specific regulations requiring clinical trials for all neural interfaces by 2026.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-purple-200 mb-1">Signal 2 (Barrier to Entry):</p>
+                                                        <p className="text-purple-100">Average cost of bringing a BCI device to market exceeds <span className="font-bold">$200M</span> due to compliance requirements and clinical trial mandates.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-purple-200 mb-1">Signal 3 (Market Consolidation):</p>
+                                                        <p className="text-purple-100">Fewer than <span className="font-bold">15 companies worldwide</span> hold BCI device approvals in major markets by 2028, indicating high concentration.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -3709,8 +3913,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     <div className="grid md:grid-cols-2 gap-6">
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-green-300 flex items-center gap-2 cursor-help">
-                                                    <Globe className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-green-300 flex items-center gap-2 cursor-help">
+                                                    <Globe className="w-6 h-6" />
                                                     External Impact: Industry Dynamics
                                                     <span className="ml-1 text-xs text-green-400">ⓘ</span>
                                                 </h5>
@@ -3721,7 +3925,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-green-200 mb-3">Porter's 6 Forces Analysis:</p>
+                                                <p className="text-base font-bold text-green-200 mb-3">Porter's 6 Forces Analysis:</p>
 
                                                 {/* Radar Chart */}
                                                 <div className="flex justify-center mb-4">
@@ -3870,8 +4074,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-green-900/30 p-4 rounded-lg border border-green-500/30">
-                                                <p className="text-xs font-semibold text-green-300 mb-2 flex items-center gap-2">
-                                                    <CheckCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-green-300 mb-2 flex items-center gap-2">
+                                                    <CheckCircle className="w-5 h-5" />
                                                     Opportunities
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-green-100">
@@ -3882,8 +4086,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-red-900/30 p-4 rounded-lg border border-red-500/30">
-                                                <p className="text-xs font-semibold text-red-300 mb-2 flex items-center gap-2">
-                                                    <XCircle className="w-4 h-4" />
+                                                <p className="text-base font-bold text-red-300 mb-2 flex items-center gap-2">
+                                                    <XCircle className="w-5 h-5" />
                                                     Threats
                                                 </p>
                                                 <ul className="space-y-1 text-xs text-red-100">
@@ -3896,8 +4100,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                         <div className="space-y-4">
                                             <div className="group relative">
-                                                <h5 className="font-bold text-green-300 flex items-center gap-2 cursor-help">
-                                                    <Shield className="w-5 h-5" />
+                                                <h5 className="text-lg font-bold text-green-300 flex items-center gap-2 cursor-help">
+                                                    <Shield className="w-6 h-6" />
                                                     Internal Impact: Our Capabilities
                                                     <span className="ml-1 text-xs text-green-400">ⓘ</span>
                                                 </h5>
@@ -3908,8 +4112,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <p className="text-xs font-semibold text-green-200 mb-3">Capability Re-evaluation:
-                                                    <span className="ml-2 text-green-300 italic text-[10px]">(Hover over bars for interpretation)</span>
+                                                <p className="text-base font-bold text-green-200 mb-3">Capability Re-evaluation:
+                                                    <span className="ml-2 text-green-300 italic text-xs">(Hover over bars for interpretation)</span>
                                                 </p>
                                                 <div className="space-y-4">
                                                     <div className="group relative bg-gray-800/40 p-3 rounded-lg border border-gray-700/30">
@@ -4006,10 +4210,10 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
 
                                             <div className="bg-black/30 p-4 rounded-lg">
-                                                <div className="group relative mb-2">
-                                                    <p className="text-xs font-semibold text-green-200 cursor-help inline-flex items-center gap-1">
+                                                <div className="group relative mb-4">
+                                                    <p className="text-base font-bold text-green-200 cursor-help inline-flex items-center gap-2">
                                                         Strategic Position Shifts:
-                                                        <span className="text-[10px] text-green-400">ⓘ</span>
+                                                        <span className="text-xs text-green-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
                                                     <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
@@ -4024,6 +4228,41 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="flex items-start gap-2">
                                                         <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
                                                         <p className="text-green-100"><span className="font-semibold">First-Mover:</span> Early medical credibility could translate to consumer trust</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-green-100"><span className="font-semibold">Portfolio Synergy Unlocked:</span> All three divisions (medical 70%, cognitive enhancement 20%, AI-Brain integration 10%) become strategic assets as markets converge</p>
+                                                    </div>
+                                                    <div className="flex items-start gap-2">
+                                                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
+                                                        <p className="text-green-100"><span className="font-semibold">AI-Brain Integration Breakthrough:</span> Our 10% revenue experimental division becomes high-growth differentiator in consumer augmentation race</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            {/* Early Warning Indicators */}
+                                            <div className="mt-6 bg-green-950/50 p-5 rounded-lg border-2 border-green-400/40">
+                                                <h5 className="font-bold text-green-200 mb-3 flex items-center gap-2">
+                                                    <AlertCircle className="w-5 h-5" />
+                                                    Early Warning Indicators: Triggers for "The Neural Revolution"
+                                                </h5>
+                                                <p className="text-xs text-green-200 mb-4 italic">This scenario emerges when a convergence of 4 indicators reaches their thresholds:</p>
+                                                <div className="space-y-3 text-sm">
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-green-200 mb-1">Signal 1 (Consumer Adoption):</p>
+                                                        <p className="text-green-100">Non-invasive consumer BCI adoption exceeds <span className="font-bold">50 million active users</span> globally by 2027, with &gt;30% year-on-year growth.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-green-200 mb-1">Signal 2 (Regulatory Support):</p>
+                                                        <p className="text-green-100">At least <span className="font-bold">3 major markets</span> establish fast-track approval pathways specifically for consumer augmentation BCIs by 2026.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-green-200 mb-1">Signal 3 (Big Tech Entry):</p>
+                                                        <p className="text-green-100">More than <span className="font-bold">5 major tech companies</span> (e.g., Apple, Google, Meta, Microsoft, Amazon) launch commercial BCI products by 2028.</p>
+                                                    </div>
+                                                    <div className="bg-black/30 p-3 rounded-lg">
+                                                        <p className="font-semibold text-green-200 mb-1">Signal 4 (Investment Surge):</p>
+                                                        <p className="text-green-100">Total VC and corporate investment in BCI technology exceeds <span className="font-bold">$50B annually</span> across all three categories (medical, cognitive enhancement, AI-Brain) by 2027.</p>
                                                     </div>
                                                 </div>
                                             </div>
@@ -4063,6 +4302,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 <p className="text-purple-200 text-sm">
                                     <span className="font-semibold text-purple-300">Next:</span> In Stage 8, you'll deliver a holistic verdict on strategic preparedness across all scenarios, identifying critical capability gaps.
                                 </p>
+                            </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(7)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 8: Delivering a Verdict on Preparedness
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
                             </div>
                         </div>
                     )}
