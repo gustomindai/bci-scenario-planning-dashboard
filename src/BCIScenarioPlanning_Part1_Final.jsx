@@ -542,12 +542,13 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === -1 && (
                         <div className="space-y-8">
                             <div className="text-center mb-8">
-                                <h2 className="text-4xl font-bold mb-4" style={{ color: '#e800c5' }}>Welcome to the BCI Foresight Engine</h2>
+                                <h2 className="text-4xl font-bold mb-4" style={{ color: '#c6a3feff' }}>Welcome to the Brain-Computer Interface Foresight Engine</h2>
                                 <p className="text-xl text-purple-200 mb-4">An Interactive Demonstration of Strategic Scenario Planning Methodology</p>
-                                <div className="px-6 py-3 rounded-xl border border-purple-400/30 inline-block" style={{ backgroundColor: 'rgba(98, 61, 167, 0.4)' }}>
+                                <div className="px-6 py-3 rounded-xl border border-purple-400/30 inline-block" style={{ backgroundColor: 'rgba(45, 3, 234, 0.35)' }}>
                                     <p className="text-white text-sm">
                                         <span className="font-semibold">Dashboard created by:</span> Dr. Bruno Oliveira with AI assistance<br />
-                                        <span className="italic">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span>
+                                        <span className="italic">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span><br />
+                                        <span className="text-xs mt-2 block">© 2025 Gustomind.ai. All Rights Reserved.</span>
                                     </p>
                                 </div>
                             </div>
@@ -943,7 +944,14 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
                                 </div>
                             ) : viewType === 'mindmap' ? (
-                                <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl overflow-x-auto overflow-y-auto flex justify-center" style={{ maxHeight: '1500px' }} ref={mindmapScrollRef}>
+                                <div>
+                                    <div className="mb-4 flex items-center justify-center gap-2 bg-blue-500/20 border border-blue-400/50 rounded-lg p-3">
+                                        <Lightbulb className="w-5 h-5 text-blue-300" />
+                                        <p className="text-sm text-blue-200">
+                                            <span className="font-semibold">Interactive Tip:</span> Hover over any factor to see detailed explanations
+                                        </p>
+                                    </div>
+                                    <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl overflow-x-auto overflow-y-auto flex justify-center" style={{ maxHeight: '1500px' }} ref={mindmapScrollRef}>
                                     <div className="relative bg-purple-900/30 rounded-lg" style={{ width: '2600px', height: '1400px', minWidth: '2600px' }}>
                                         {/* Central Node */}
                                         <div className="absolute" style={{ left: '1300px', top: '700px', transform: 'translate(-50%, -50%)', zIndex: 30 }}>
@@ -1127,6 +1135,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             ) : (
                                 <>
                                     {/* PESTLE Filter */}

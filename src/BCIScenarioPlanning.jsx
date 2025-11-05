@@ -1,10 +1,15 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import bciImage from './1s4WgzpPUGAmqOVjcUPzH-1.png';
+import scenario1Image from './Bci-Dashboard-Images/Scenario1.png';
+import scenario2Image from './Bci-Dashboard-Images/Scenario2.png';
+import scenario3Image from './Bci-Dashboard-Images/Scenario3.png';
+import scenario4Image from './Bci-Dashboard-Images/Scenario4.png';
 
 const BCIScenarioPlanning = () => {
     const [activeStage, setActiveStage] = useState(-1);
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [viewType, setViewType] = useState('list'); // 'list' or 'mindmap'
+    const [viewType, setViewType] = useState('mindmap'); // 'list' or 'mindmap'
     const [selectedUncertainty, setSelectedUncertainty] = useState(null);
     const [hoveredDriver, setHoveredDriver] = useState(null);
     const mindmapScrollRef = useRef(null);
@@ -546,13 +551,22 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === -1 && (
                         <div className="space-y-8">
                             <div className="text-center mb-8">
-                                <h2 className="text-4xl font-bold mb-4" style={{ color: '#e800c5' }}>Welcome to the BCI Foresight Engine</h2>
+                                <h2 className="text-4xl font-bold mb-4" style={{ color: '#c6a3feff' }}>Welcome to the Brain-Computer Interface Foresight Engine</h2>
                                 <p className="text-xl text-purple-200 mb-4">An Interactive Demonstration of Strategic Scenario Planning Methodology</p>
-                                <div className="px-6 py-3 rounded-xl border border-purple-400/30 inline-block" style={{ backgroundColor: 'rgba(98, 61, 167, 0.4)' }}>
+                                <div className="px-6 py-3 rounded-xl border border-purple-400/30 inline-block" style={{ backgroundColor: 'rgba(45, 3, 234, 0.35)' }}>
                                     <p className="text-white text-sm">
                                         <span className="font-semibold">Dashboard created by:</span> Dr. Bruno Oliveira with AI assistance<br />
-                                        <span className="italic">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span>
+                                        <span className="italic">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span><br />
+                                        <span className="text-xs mt-2 block">© 2025 Gustomind.ai. All Rights Reserved.</span>
                                     </p>
+                                </div>
+                                <div className="mt-6">
+                                    <img
+                                        src={bciImage}
+                                        alt="Brain-Computer Interface Visualization"
+                                        className="mx-auto rounded-lg border-2 border-purple-400/50 shadow-xl"
+                                        style={{ maxWidth: '800px', width: '100%' }}
+                                    />
                                 </div>
                             </div>
 
@@ -947,7 +961,14 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
                                 </div>
                             ) : viewType === 'mindmap' ? (
-                                <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl overflow-x-auto overflow-y-auto flex justify-center" style={{ maxHeight: '1500px' }} ref={mindmapScrollRef}>
+                                <div>
+                                    <div className="mb-4 flex items-center justify-center gap-2 bg-blue-500/20 border border-blue-400/50 rounded-lg p-3">
+                                        <Lightbulb className="w-5 h-5 text-blue-300" />
+                                        <p className="text-sm text-blue-200">
+                                            <span className="font-semibold">Interactive Tip:</span> Hover over any factor to see detailed explanations
+                                        </p>
+                                    </div>
+                                    <div className="bg-gradient-to-br from-purple-900/50 to-pink-900/50 rounded-xl overflow-x-auto overflow-y-auto flex justify-center" style={{ maxHeight: '1500px' }} ref={mindmapScrollRef}>
                                     <div className="relative bg-purple-900/30 rounded-lg" style={{ width: '2600px', height: '1400px', minWidth: '2600px' }}>
                                         {/* Central Node */}
                                         <div className="absolute" style={{ left: '1300px', top: '700px', transform: 'translate(-50%, -50%)', zIndex: 30 }}>
@@ -1131,6 +1152,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </div>
                                     </div>
                                 </div>
+                            </div>
                             ) : (
                                 <>
                                     {/* PESTLE Filter */}
@@ -2322,6 +2344,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </div>
                                     </div>
 
+                                    <div className="mb-6">
+                                        <img
+                                            src={scenario1Image}
+                                            alt="The Hesitant Dawn"
+                                            className="w-full rounded-lg border-2 border-blue-400/50 shadow-xl"
+                                            style={{ maxWidth: '800px', margin: '0 auto' }}
+                                        />
+                                    </div>
+
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
                                             <h4 className="font-bold text-blue-300 mb-2">Primary Factors:</h4>
@@ -2398,6 +2429,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                 <span className="bg-orange-800/50 px-3 py-1 rounded-full">{scenarios.scenario2.narrativeType}</span>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div className="mb-6">
+                                        <img
+                                            src={scenario2Image}
+                                            alt="The Forbidden Frontier"
+                                            className="w-full rounded-lg border-2 border-orange-400/50 shadow-xl"
+                                            style={{ maxWidth: '800px', margin: '0 auto' }}
+                                        />
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
@@ -2487,6 +2527,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </div>
                                     </div>
 
+                                    <div className="mb-6">
+                                        <img
+                                            src={scenario3Image}
+                                            alt="The Waiting World"
+                                            className="w-full rounded-lg border-2 border-purple-400/50 shadow-xl"
+                                            style={{ maxWidth: '800px', margin: '0 auto' }}
+                                        />
+                                    </div>
+
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
                                             <h4 className="font-bold text-purple-300 mb-2">Primary Factors:</h4>
@@ -2562,6 +2611,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                 <span className="bg-green-800/50 px-3 py-1 rounded-full">{scenarios.scenario4.narrativeType}</span>
                                             </div>
                                         </div>
+                                    </div>
+
+                                    <div className="mb-6">
+                                        <img
+                                            src={scenario4Image}
+                                            alt="The Augmented Age"
+                                            className="w-full rounded-lg border-2 border-green-400/50 shadow-xl"
+                                            style={{ maxWidth: '800px', margin: '0 auto' }}
+                                        />
                                     </div>
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
