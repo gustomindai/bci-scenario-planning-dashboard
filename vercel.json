@@ -1,0 +1,12 @@
+{
+  "routes": [
+    {
+      "src": "/scenarios/(.*)",
+      "dest": "/scenarios/$1"
+    },
+    {
+      "src": "/scenarios",
+      "dest": "/scenarios/index.html"
+    }
+  ]
+}
