@@ -542,9 +542,9 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === -1 && (
                         <div className="space-y-8">
                             <div className="text-center mb-8">
-                                <h2 className="text-4xl font-bold mb-4 text-yellow-300">Welcome to the BCI Foresight Engine</h2>
+                                <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-pink-400 to-purple-400 bg-clip-text text-transparent">Welcome to the BCI Foresight Engine</h2>
                                 <p className="text-xl text-purple-200 mb-4">An Interactive Demonstration of Strategic Scenario Planning Methodology</p>
-                                <div className="bg-purple-900/40 px-6 py-3 rounded-xl border border-purple-400/30 inline-block">
+                                <div className="px-6 py-3 rounded-xl border border-purple-400/30 inline-block" style={{ backgroundColor: 'rgba(98, 61, 167, 0.4)' }}>
                                     <p className="text-purple-200 text-sm">
                                         <span className="font-semibold text-purple-100">Dashboard created by:</span> Dr. Bruno Oliveira with AI assistance<br />
                                         <span className="italic text-purple-300">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span>
