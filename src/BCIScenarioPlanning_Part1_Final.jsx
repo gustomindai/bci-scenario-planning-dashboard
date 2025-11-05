@@ -4610,7 +4610,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                             Senior Lecturer at the University of Bath | Founder of Gustomind.ai
                         </p>
                         <p className="text-purple-400 text-xs mt-3">
-                            © 2025 Dr. Bruno Oliveira. All Rights Reserved.
+                            © 2025 Gustomind.ai. All Rights Reserved.
                         </p>
                     </div>
                 </div>
