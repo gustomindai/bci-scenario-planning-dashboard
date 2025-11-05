@@ -4,7 +4,7 @@ import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, 
 const BCIScenarioPlanning = () => {
     const [activeStage, setActiveStage] = useState(-1);
     const [selectedCategory, setSelectedCategory] = useState('all');
-    const [viewType, setViewType] = useState('list'); // 'list' or 'mindmap'
+    const [viewType, setViewType] = useState('mindmap'); // 'list' or 'mindmap'
     const [selectedUncertainty, setSelectedUncertainty] = useState(null);
     const [hoveredDriver, setHoveredDriver] = useState(null);
     const mindmapScrollRef = useRef(null);
