@@ -1,12 +1,8 @@
 {
-  "routes": [
+  "rewrites": [
     {
-      "src": "/MN32041-bci-scenario-planning-dashboard/(.*)",
-      "dest": "/MN32041-bci-scenario-planning-dashboard/$1"
-    },
-    {
-      "src": "/MN32041-bci-scenario-planning-dashboard",
-      "dest": "/MN32041-bci-scenario-planning-dashboard/index.html"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }

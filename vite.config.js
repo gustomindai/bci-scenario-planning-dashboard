@@ -4,5 +4,5 @@ import react from '@vitejs/plugin-react'
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
-  base: '/MN32041-bci-scenario-planning-dashboard/'
+  // No base path - we're using client-side routing with React Router
 })
