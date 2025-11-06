@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle, Activity, Info } from 'lucide-react';
+import stage2BrainImage from './Bci-Dashboard-Images/Stage1_Focal_Issue_Cover_Image.png';
 
 const BCIScenarioPlanning = () => {
     const [activeStage, setActiveStage] = useState(-1);
@@ -763,27 +764,69 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 0 && (
                         <div className="space-y-8">
                             <div className="text-center">
-                                <h2 className="text-3xl font-bold mb-4 text-purple-300">Step 1: Defining the Focal Issue</h2>
+                                <div className="group relative inline-block mb-4">
+                                    <h2 className="text-3xl font-bold text-purple-300 cursor-help">
+                                        Step 1: Defining the Focal Issue
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why start with a focal issue?</span> Scenario planning begins by defining a clear strategic question that matters to your organization. This focal issue sets the scope, time horizon, and boundaries for the entire exercise, ensuring all scenarios remain relevant to decision-making.
+                                    </div>
+                                </div>
                                 <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 p-8 rounded-xl border-2 border-purple-400">
-                                    <p className="text-2xl font-semibold mb-2">Focal Question</p>
+                                    <div className="group relative inline-block">
+                                        <p className="text-2xl font-semibold mb-2 cursor-help">
+                                            Focal Question
+                                            <span className="ml-2 text-lg text-purple-300">ⓘ</span>
+                                        </p>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">What is a focal question?</span> The focal question is the central strategic inquiry that drives your scenario planning exercise. It should be specific enough to guide analysis but broad enough to explore multiple futures. It typically asks "how" or "what" rather than "yes/no" questions.
+                                        </div>
+                                    </div>
                                     <p className="text-xl italic">{focalIssue.question}</p>
                                 </div>
                             </div>
 
+                            {/* Stage 1 Brain/BCI Image */}
+                            <div className="flex justify-center my-6">
+                                <img
+                                    src={stage2BrainImage}
+                                    alt="Brain-Computer Interface Visualization"
+                                    className="rounded-xl border-2 border-purple-400/50 shadow-2xl"
+                                    style={{ maxWidth: '800px', width: '100%' }}
+                                />
+                            </div>
+
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="bg-purple-800/30 p-6 rounded-xl">
-                                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                        <Calendar className="w-6 h-6" />
-                                        Time Horizon: {focalIssue.horizon}
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Calendar className="w-6 h-6" />
+                                            Time Horizon: {focalIssue.horizon}
+                                            <span className="ml-2 text-lg text-purple-300">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">Why set a time horizon?</span> The time horizon defines how far into the future your scenarios extend. Too short (1-3 years) limits strategic options; too long (20+ years) becomes speculative. A 10-year horizon balances actionable insights with transformative change potential.
+                                        </div>
+                                    </div>
                                     <p className="text-purple-200 mb-4">A 10-year strategic planning window (2025-2035)</p>
                                 </div>
 
                                 <div className="bg-pink-800/30 p-6 rounded-xl">
-                                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                        <Zap className="w-6 h-6" />
-                                        Focus Area
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Zap className="w-6 h-6" />
+                                            Focus Area
+                                            <span className="ml-2 text-lg text-pink-300">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-pink-300">Why define a focus area?</span> The focus area narrows the scope of your scenario planning to specific domains (e.g., technology, markets, regulations). This ensures scenarios are detailed enough to inform strategy while remaining manageable in complexity.
+                                        </div>
+                                    </div>
                                     <p className="text-pink-200">Brain-Computer Interface technology's impact across work, health, and society</p>
                                 </div>
                             </div>
@@ -828,39 +871,66 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 1 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 2: Scanning for Signals</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 2: Scanning for Signals
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why scan for signals?</span> Environmental scanning identifies the key forces, trends, and uncertainties that could shape your scenarios. Using frameworks like PESTLE ensures comprehensive coverage across Political, Economic, Social, Technological, Legal, and Environmental dimensions.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">49 Critical Uncertainties Across PESTLE Dimensions</p>
                             </div>
 
                             {/* View Toggle */}
                             <div className="flex justify-center gap-3 mb-6">
-                                <button
-                                    onClick={() => setViewType('list')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'list'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    List View
-                                </button>
-                                <button
-                                    onClick={() => setViewType('category')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'category'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    Category View
-                                </button>
-                                <button
-                                    onClick={() => setViewType('mindmap')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'mindmap'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    Mind Map View
-                                </button>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('list')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'list'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        List View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">List View:</span> Displays all 49 factors as detailed cards with descriptions, impact scores, and uncertainty ratings. Best for reading comprehensive details about each factor. Filter by PESTLE category to focus on specific dimensions.
+                                    </div>
+                                </div>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('category')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'category'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        Category View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Category View:</span> Organizes all factors into PESTLE categories (Political, Economic, Social, Technological, Legal, Environmental) in a grid layout. Best for seeing the distribution and balance across dimensions. Hover over any factor for details.
+                                    </div>
+                                </div>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('mindmap')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'mindmap'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        Mind Map View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Mind Map View:</span> Visual radial layout showing all factors branching from the central BCI Future node. Color-coded by PESTLE category. Top 10 critical drivers are marked with pink numbers. Best for seeing relationships and interconnections at a glance.
+                                    </div>
+                                </div>
                             </div>
 
                             {viewType === 'category' ? (
@@ -884,9 +954,44 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             return (
                                                 <div key={category} className={`${pestleColors[category]}/20 border-2 border-white/30 rounded-xl p-4`}>
                                                     {/* Category Header */}
-                                                    <div className={`${pestleColors[category]} rounded-lg p-3 mb-4 text-center shadow-lg`}>
-                                                        <p className="font-bold text-lg">{category}</p>
-                                                        <p className="text-xs opacity-90">{categoryUncertainties.length} Uncertainties</p>
+                                                    <div className="group relative">
+                                                        <div className={`${pestleColors[category]} rounded-lg p-3 mb-4 text-center shadow-lg cursor-help`}>
+                                                            <p className="font-bold text-lg">{category} <span className="text-xs">ⓘ</span></p>
+                                                            <p className="text-xs opacity-90">{categoryUncertainties.length} Uncertainties</p>
+                                                        </div>
+                                                        {/* Tooltip */}
+                                                        <div className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border ${category === 'Political' ? 'border-purple-400/50' : category === 'Economic' ? 'border-blue-400/50' : category === 'Social' ? 'border-pink-400/50' : category === 'Technological' ? 'border-green-400/50' : category === 'Legal' ? 'border-yellow-400/50' : 'border-orange-400/50'} opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50`}>
+                                                            {category === 'Political' && (
+                                                                <>
+                                                                    <span className="font-semibold text-purple-300">Political:</span> Government policies, regulations, political stability, trade restrictions, tax policies, and governance structures that affect BCI adoption
+                                                                </>
+                                                            )}
+                                                            {category === 'Economic' && (
+                                                                <>
+                                                                    <span className="font-semibold text-blue-300">Economic:</span> Market conditions, economic growth, funding availability, cost structures, and economic factors influencing BCI commercialization
+                                                                </>
+                                                            )}
+                                                            {category === 'Social' && (
+                                                                <>
+                                                                    <span className="font-semibold text-pink-300">Social:</span> Cultural attitudes, public acceptance, ethical concerns, demographic shifts, and social trends impacting BCI usage
+                                                                </>
+                                                            )}
+                                                            {category === 'Technological' && (
+                                                                <>
+                                                                    <span className="font-semibold text-green-300">Technological:</span> Innovation pace, R&D breakthroughs, technical standards, interoperability, and technological capabilities enabling or limiting BCI development
+                                                                </>
+                                                            )}
+                                                            {category === 'Legal' && (
+                                                                <>
+                                                                    <span className="font-semibold text-yellow-300">Legal:</span> Laws, regulations, intellectual property, liability frameworks, data protection, and legal structures governing BCI applications
+                                                                </>
+                                                            )}
+                                                            {category === 'Environmental' && (
+                                                                <>
+                                                                    <span className="font-semibold text-orange-300">Environmental:</span> Sustainability concerns, resource usage, environmental impact, and ecological considerations related to BCI technology
+                                                                </>
+                                                            )}
+                                                        </div>
                                                     </div>
 
                                                     {/* All Uncertainties in this Category */}
@@ -1231,29 +1336,66 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 2 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 3: Impact-Uncertainty Matrix</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 3: Impact-Uncertainty Matrix
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">What is the Impact-Uncertainty Matrix?</span> This tool prioritizes which external factors should become scenario drivers by plotting them on two dimensions: their potential impact on your organization and the uncertainty surrounding them. High-impact, high-uncertainty factors become critical scenario drivers because they represent forces that could dramatically reshape your industry but whose direction is unpredictable.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">Prioritising the Critical Scenario Drivers</p>
                             </div>
 
                             {/* Summary Statistics */}
                             <div className="grid grid-cols-4 gap-3 mb-4">
-                                <div className="bg-purple-800/40 p-4 rounded-lg text-center border border-purple-500/30">
+                                <div className="group relative bg-purple-800/40 p-4 rounded-lg text-center border border-purple-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-purple-300">{uncertainties.length}</p>
-                                    <p className="text-xs text-purple-200 mt-1">Total Factors Plotted</p>
+                                    <p className="text-xs text-purple-200 mt-1">
+                                        Total Factors Plotted
+                                        <span className="ml-1 text-purple-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Total Factors:</span> This shows all PESTLE factors identified during environmental scanning that are plotted on the matrix. Each represents a potential external force that could affect your organization's future.
+                                    </div>
                                 </div>
-                                <div className="bg-pink-800/40 p-4 rounded-lg text-center border border-pink-500/30">
+                                <div className="group relative bg-pink-800/40 p-4 rounded-lg text-center border border-pink-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-pink-300">{criticalDrivers.length}</p>
-                                    <p className="text-xs text-pink-200 mt-1">Critical Drivers (Numbered)</p>
+                                    <p className="text-xs text-pink-200 mt-1">
+                                        Critical Drivers (Numbered)
+                                        <span className="ml-1 text-pink-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Critical Drivers:</span> The top-ranked factors based on combined impact and uncertainty scores. These numbered drivers (shown as large pink dots) are your most strategic uncertainties—forces that could significantly alter your competitive landscape in unpredictable ways.
+                                    </div>
                                 </div>
-                                <div className="bg-yellow-800/40 p-4 rounded-lg text-center border border-yellow-500/30">
+                                <div className="group relative bg-yellow-800/40 p-4 rounded-lg text-center border border-yellow-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-yellow-300">
                                         {uncertainties.filter(u => u.impact >= 8 && u.uncertainty >= 8).length}
                                     </p>
-                                    <p className="text-xs text-yellow-200 mt-1">High Impact + Uncertainty</p>
+                                    <p className="text-xs text-yellow-200 mt-1">
+                                        High Impact + Uncertainty
+                                        <span className="ml-1 text-yellow-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-yellow-300">High Impact + Uncertainty:</span> Factors scoring 8+ on both dimensions, occupying the upper-right quadrant. This is the "critical scenario drivers zone" where the most important uncertainties live—forces powerful enough to reshape your industry whose outcomes are highly unpredictable.
+                                    </div>
                                 </div>
-                                <div className="bg-green-800/40 p-4 rounded-lg text-center border border-green-500/30">
+                                <div className="group relative bg-green-800/40 p-4 rounded-lg text-center border border-green-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-green-300">3</p>
-                                    <p className="text-xs text-green-200 mt-1">Text-Labeled (Top 3)</p>
+                                    <p className="text-xs text-green-200 mt-1">
+                                        Text-Labeled (Top 3)
+                                        <span className="ml-1 text-green-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-green-300">Text-Labeled Drivers:</span> The top 3 critical drivers are given text labels on the matrix for immediate visibility. This highlights your most strategically important uncertainties at a glance, helping focus discussion on the factors that matter most.
+                                    </div>
                                 </div>
                             </div>
 
@@ -1602,10 +1744,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Critical Drivers List */}
                             <div className="bg-pink-900/30 p-6 rounded-xl border border-pink-500/30">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <TrendingUp className="w-6 h-6" />
-                                    Top 10 Critical Scenario Drivers (Ranked by Combined Score)
-                                </h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                        <TrendingUp className="w-6 h-6" />
+                                        Top 10 Critical Scenario Drivers (Ranked by Combined Score)
+                                        <span className="ml-2 text-lg text-pink-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Critical Scenario Drivers:</span> These are the top-ranked uncertainties based on their combined impact and uncertainty scores. They represent the most strategically important forces that could reshape your industry in unpredictable ways. These drivers become candidates for scenario axes and should be closely monitored as your strategy unfolds.
+                                    </div>
+                                </div>
                                 <p className="text-sm text-pink-200 mb-4">
                                     All 10 drivers are numbered on the matrix. The top 3 also have text labels for immediate identification.
                                 </p>
@@ -1646,10 +1795,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Critical Planning Issues - Impactful But Expected Trends */}
                             <div className="bg-blue-900/30 p-6 rounded-xl border border-blue-500/30">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <AlertCircle className="w-6 h-6 text-blue-300" />
-                                    <span className="text-blue-300">Critical Planning Issues: Impactful But Expected Trends</span>
-                                </h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                        <AlertCircle className="w-6 h-6 text-blue-300" />
+                                        <span className="text-blue-300">Critical Planning Issues: Impactful But Expected Trends</span>
+                                        <span className="ml-2 text-lg text-blue-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-blue-300">Critical Planning Issues:</span> These factors have high impact but low uncertainty—they're powerful forces whose direction is relatively predictable. While not scenario drivers, they're essential for grounding your scenarios in reality. Think of them as the "known constraints" that all scenarios must work within.
+                                    </div>
+                                </div>
                                 <p className="text-sm text-blue-200 mb-4">
                                     These factors (blue dots on matrix) have <span className="font-semibold">high impact but low uncertainty</span>. While they are not key scenario drivers,
                                     they represent <span className="font-semibold">predictable trends with significant consequences</span> that should be incorporated into all scenario narratives
@@ -1713,7 +1869,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 3 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 4: Mapping Driver Connections</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 4: Mapping Driver Connections
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why Map Driver Connections?</span> Not all critical drivers are equally influential. By mapping how drivers causally influence each other, we identify "linchpin factors"—the forces that, if they shift, create cascading effects throughout the system. These highly connected drivers make excellent scenario axes because their movement reshapes the entire landscape.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">Identifying Linchpin Factors Through Network Analysis</p>
                             </div>
 
@@ -1833,10 +1998,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                             {/* Legend & Insights */}
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div className="bg-purple-800/30 p-6 rounded-xl">
-                                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                                        <Network className="w-5 h-5" />
-                                        Understanding Connection Types
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Network className="w-5 h-5" />
+                                            Understanding Connection Types
+                                            <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">Connection Types:</span> Drivers can relate through simple cause-effect (one influences the other) or feedback loops (mutual reinforcement). Understanding these patterns helps identify which drivers are most systemically important and likely to trigger cascading changes.
+                                        </div>
+                                    </div>
 
                                     <div className="space-y-4 text-sm">
                                         {/* Cause-Effect */}
@@ -1876,10 +2048,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 </div>
 
                                 <div className="bg-pink-900/30 p-6 rounded-xl border border-pink-500/30">
-                                    <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-pink-300">
-                                        <Zap className="w-5 h-5" />
-                                        Linchpin Drivers Identified
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-pink-300 cursor-help">
+                                            <Zap className="w-5 h-5" />
+                                            Linchpin Drivers Identified
+                                            <span className="ml-2 text-sm text-pink-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-pink-300">Linchpin Drivers:</span> These are highly connected factors that influence multiple other drivers. When a linchpin shifts, it creates ripple effects throughout the system. They're prime candidates for scenario axes because their movement fundamentally reshapes the strategic landscape in unpredictable ways.
+                                        </div>
+                                    </div>
                                     <p className="text-sm text-pink-100 mb-3">
                                         Drivers with 2+ connections are highlighted in <span className="font-bold text-pink-300">bright pink</span>. These are the forces that,
                                         if they shift, will create the greatest ripple effects across the entire system.
@@ -1896,7 +2075,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Key Linchpin Drivers */}
                             <div className="bg-gradient-to-r from-pink-900/30 to-purple-900/30 p-6 rounded-xl border border-pink-500/20">
-                                <h3 className="text-xl font-bold mb-4">Strategic Insight: Linchpin Factors</h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 cursor-help">
+                                        Strategic Insight: Linchpin Factors
+                                        <span className="ml-2 text-lg text-pink-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Strategic Insight:</span> This list ranks drivers by their connection count, revealing which factors are most systemically influential. The number shows how many other drivers each factor influences. Higher numbers mean greater systemic leverage—these are the forces that, when they move, reshape the entire competitive landscape.
+                                    </div>
+                                </div>
                                 <div className="space-y-3">
                                     {criticalDrivers
                                         .map(driver => ({

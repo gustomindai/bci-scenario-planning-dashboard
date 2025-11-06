@@ -1,10 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle } from 'lucide-react';
+import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle, Activity, Info } from 'lucide-react';
 import bciImage from './1s4WgzpPUGAmqOVjcUPzH-1.png';
 import scenario1Image from './Bci-Dashboard-Images/Scenario1.png';
 import scenario2Image from './Bci-Dashboard-Images/Scenario2.png';
 import scenario3Image from './Bci-Dashboard-Images/Scenario3.png';
 import scenario4Image from './Bci-Dashboard-Images/Scenario4.png';
+import stage7Image from './Bci-Dashboard-Images/Stage7_Impact-Assessment.jpg';
+import stage2BrainImage from './Bci-Dashboard-Images/Stage1_Focal_Issue_Cover_Image.png';
+import stage5Image from './Bci-Dashboard-Images/Stage5.png';
 
 const BCIScenarioPlanning = () => {
     const [activeStage, setActiveStage] = useState(-1);
@@ -492,7 +495,8 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
         { id: 4, title: 'Choosing the Axes', icon: Zap },
         { id: 5, title: 'Scenario Narratives', icon: Globe },
         { id: 6, title: 'Impact Assessment', icon: Target },
-        { id: 7, title: 'Strategic Preparedness', icon: BarChart3 }
+        { id: 7, title: 'Strategic Preparedness', icon: BarChart3 },
+        { id: 8, title: 'Live Indicator Tracking', icon: Activity }
     ];
 
     // Filter uncertainties by category
@@ -780,27 +784,69 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 0 && (
                         <div className="space-y-8">
                             <div className="text-center">
-                                <h2 className="text-3xl font-bold mb-4 text-purple-300">Step 1: Defining the Focal Issue</h2>
+                                <div className="group relative inline-block mb-4">
+                                    <h2 className="text-3xl font-bold text-purple-300 cursor-help">
+                                        Step 1: Defining the Focal Issue
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why start with a focal issue?</span> Scenario planning begins by defining a clear strategic question that matters to your organization. This focal issue sets the scope, time horizon, and boundaries for the entire exercise, ensuring all scenarios remain relevant to decision-making.
+                                    </div>
+                                </div>
                                 <div className="bg-gradient-to-r from-purple-600/30 to-pink-600/30 p-8 rounded-xl border-2 border-purple-400">
-                                    <p className="text-2xl font-semibold mb-2">Focal Question</p>
+                                    <div className="group relative inline-block">
+                                        <p className="text-2xl font-semibold mb-2 cursor-help">
+                                            Focal Question
+                                            <span className="ml-2 text-lg text-purple-300">ⓘ</span>
+                                        </p>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">What is a focal question?</span> The focal question is the central strategic inquiry that drives your scenario planning exercise. It should be specific enough to guide analysis but broad enough to explore multiple futures. It typically asks "how" or "what" rather than "yes/no" questions.
+                                        </div>
+                                    </div>
                                     <p className="text-xl italic">{focalIssue.question}</p>
                                 </div>
                             </div>
 
+                            {/* Stage 1 Brain/BCI Image */}
+                            <div className="flex justify-center my-6">
+                                <img
+                                    src={stage2BrainImage}
+                                    alt="Brain-Computer Interface Visualization"
+                                    className="rounded-xl border-2 border-purple-400/50 shadow-2xl"
+                                    style={{ maxWidth: '800px', width: '100%' }}
+                                />
+                            </div>
+
                             <div className="grid md:grid-cols-2 gap-8">
                                 <div className="bg-purple-800/30 p-6 rounded-xl">
-                                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                        <Calendar className="w-6 h-6" />
-                                        Time Horizon: {focalIssue.horizon}
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Calendar className="w-6 h-6" />
+                                            Time Horizon: {focalIssue.horizon}
+                                            <span className="ml-2 text-lg text-purple-300">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">Why set a time horizon?</span> The time horizon defines how far into the future your scenarios extend. Too short (1-3 years) limits strategic options; too long (20+ years) becomes speculative. A 10-year horizon balances actionable insights with transformative change potential.
+                                        </div>
+                                    </div>
                                     <p className="text-purple-200 mb-4">A 10-year strategic planning window (2025-2035)</p>
                                 </div>
 
                                 <div className="bg-pink-800/30 p-6 rounded-xl">
-                                    <h3 className="text-2xl font-bold mb-4 flex items-center gap-2">
-                                        <Zap className="w-6 h-6" />
-                                        Focus Area
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-2xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Zap className="w-6 h-6" />
+                                            Focus Area
+                                            <span className="ml-2 text-lg text-pink-300">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-pink-300">Why define a focus area?</span> The focus area narrows the scope of your scenario planning to specific domains (e.g., technology, markets, regulations). This ensures scenarios are detailed enough to inform strategy while remaining manageable in complexity.
+                                        </div>
+                                    </div>
                                     <p className="text-pink-200">Brain-Computer Interface technology's impact across work, health, and society</p>
                                 </div>
                             </div>
@@ -812,7 +858,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <span className="ml-1 text-sm text-indigo-400">ⓘ</span>
                                     </h3>
                                     {/* Tooltip */}
-                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-indigo-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-indigo-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                         <span className="font-semibold text-indigo-300">Why choose a time horizon?</span> Strategic scenario planning requires selecting a future point far enough to allow for meaningful change, but near enough to inform current decisions. The 2035 horizon (10 years) balances uncertainty with actionability—it's beyond typical 3-5 year plans, allowing transformative shifts to unfold, while remaining relevant to today's strategic choices.
                                     </div>
                                 </div>
@@ -845,39 +891,66 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 1 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 2: Scanning for Signals</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 2: Scanning for Signals
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why scan for signals?</span> Environmental scanning identifies the key forces, trends, and uncertainties that could shape your scenarios. Using frameworks like PESTLE ensures comprehensive coverage across Political, Economic, Social, Technological, Legal, and Environmental dimensions.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">49 Critical Uncertainties Across PESTLE Dimensions</p>
                             </div>
 
                             {/* View Toggle */}
                             <div className="flex justify-center gap-3 mb-6">
-                                <button
-                                    onClick={() => setViewType('list')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'list'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    List View
-                                </button>
-                                <button
-                                    onClick={() => setViewType('category')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'category'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    Category View
-                                </button>
-                                <button
-                                    onClick={() => setViewType('mindmap')}
-                                    className={`px-4 py-2 rounded-lg font-semibold transition-all ${viewType === 'mindmap'
-                                        ? 'bg-white text-purple-900'
-                                        : 'bg-purple-700/50 hover:bg-purple-600/50'
-                                        }`}
-                                >
-                                    Mind Map View
-                                </button>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('list')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'list'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        List View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">List View:</span> Displays all 49 factors as detailed cards with descriptions, impact scores, and uncertainty ratings. Best for reading comprehensive details about each factor. Filter by PESTLE category to focus on specific dimensions.
+                                    </div>
+                                </div>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('category')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'category'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        Category View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Category View:</span> Organizes all factors into PESTLE categories (Political, Economic, Social, Technological, Legal, Environmental) in a grid layout. Best for seeing the distribution and balance across dimensions. Hover over any factor for details.
+                                    </div>
+                                </div>
+                                <div className="group relative">
+                                    <button
+                                        onClick={() => setViewType('mindmap')}
+                                        className={`px-4 py-2 rounded-lg font-semibold transition-all cursor-help ${viewType === 'mindmap'
+                                            ? 'bg-white text-purple-900'
+                                            : 'bg-purple-700/50 hover:bg-purple-600/50'
+                                            }`}
+                                    >
+                                        Mind Map View <span className="text-xs">ⓘ</span>
+                                    </button>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Mind Map View:</span> Visual radial layout showing all factors branching from the central BCI Future node. Color-coded by PESTLE category. Top 10 critical drivers are marked with pink numbers. Best for seeing relationships and interconnections at a glance.
+                                    </div>
+                                </div>
                             </div>
 
                             {viewType === 'category' ? (
@@ -901,9 +974,44 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             return (
                                                 <div key={category} className={`${pestleColors[category]}/20 border-2 border-white/30 rounded-xl p-4`}>
                                                     {/* Category Header */}
-                                                    <div className={`${pestleColors[category]} rounded-lg p-3 mb-4 text-center shadow-lg`}>
-                                                        <p className="font-bold text-lg">{category}</p>
-                                                        <p className="text-xs opacity-90">{categoryUncertainties.length} Uncertainties</p>
+                                                    <div className="group relative">
+                                                        <div className={`${pestleColors[category]} rounded-lg p-3 mb-4 text-center shadow-lg cursor-help`}>
+                                                            <p className="font-bold text-lg">{category} <span className="text-xs">ⓘ</span></p>
+                                                            <p className="text-xs opacity-90">{categoryUncertainties.length} Uncertainties</p>
+                                                        </div>
+                                                        {/* Tooltip */}
+                                                        <div className={`absolute left-1/2 -translate-x-1/2 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border ${category === 'Political' ? 'border-purple-400/50' : category === 'Economic' ? 'border-blue-400/50' : category === 'Social' ? 'border-pink-400/50' : category === 'Technological' ? 'border-green-400/50' : category === 'Legal' ? 'border-yellow-400/50' : 'border-orange-400/50'} opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50`}>
+                                                            {category === 'Political' && (
+                                                                <>
+                                                                    <span className="font-semibold text-purple-300">Political:</span> Government policies, regulations, political stability, trade restrictions, tax policies, and governance structures that affect BCI adoption
+                                                                </>
+                                                            )}
+                                                            {category === 'Economic' && (
+                                                                <>
+                                                                    <span className="font-semibold text-blue-300">Economic:</span> Market conditions, economic growth, funding availability, cost structures, and economic factors influencing BCI commercialization
+                                                                </>
+                                                            )}
+                                                            {category === 'Social' && (
+                                                                <>
+                                                                    <span className="font-semibold text-pink-300">Social:</span> Cultural attitudes, public acceptance, ethical concerns, demographic shifts, and social trends impacting BCI usage
+                                                                </>
+                                                            )}
+                                                            {category === 'Technological' && (
+                                                                <>
+                                                                    <span className="font-semibold text-green-300">Technological:</span> Innovation pace, R&D breakthroughs, technical standards, interoperability, and technological capabilities enabling or limiting BCI development
+                                                                </>
+                                                            )}
+                                                            {category === 'Legal' && (
+                                                                <>
+                                                                    <span className="font-semibold text-yellow-300">Legal:</span> Laws, regulations, intellectual property, liability frameworks, data protection, and legal structures governing BCI applications
+                                                                </>
+                                                            )}
+                                                            {category === 'Environmental' && (
+                                                                <>
+                                                                    <span className="font-semibold text-orange-300">Environmental:</span> Sustainability concerns, resource usage, environmental impact, and ecological considerations related to BCI technology
+                                                                </>
+                                                            )}
+                                                        </div>
                                                     </div>
 
                                                     {/* All Uncertainties in this Category */}
@@ -1248,29 +1356,66 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 2 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 3: Impact-Uncertainty Matrix</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 3: Impact-Uncertainty Matrix
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">What is the Impact-Uncertainty Matrix?</span> This tool prioritizes which external factors should become scenario drivers by plotting them on two dimensions: their potential impact on your organization and the uncertainty surrounding them. High-impact, high-uncertainty factors become critical scenario drivers because they represent forces that could dramatically reshape your industry but whose direction is unpredictable.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">Prioritising the Critical Scenario Drivers</p>
                             </div>
 
                             {/* Summary Statistics */}
                             <div className="grid grid-cols-4 gap-3 mb-4">
-                                <div className="bg-purple-800/40 p-4 rounded-lg text-center border border-purple-500/30">
+                                <div className="group relative bg-purple-800/40 p-4 rounded-lg text-center border border-purple-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-purple-300">{uncertainties.length}</p>
-                                    <p className="text-xs text-purple-200 mt-1">Total Factors Plotted</p>
+                                    <p className="text-xs text-purple-200 mt-1">
+                                        Total Factors Plotted
+                                        <span className="ml-1 text-purple-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Total Factors:</span> This shows all PESTLE factors identified during environmental scanning that are plotted on the matrix. Each represents a potential external force that could affect your organization's future.
+                                    </div>
                                 </div>
-                                <div className="bg-pink-800/40 p-4 rounded-lg text-center border border-pink-500/30">
+                                <div className="group relative bg-pink-800/40 p-4 rounded-lg text-center border border-pink-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-pink-300">{criticalDrivers.length}</p>
-                                    <p className="text-xs text-pink-200 mt-1">Critical Drivers (Numbered)</p>
+                                    <p className="text-xs text-pink-200 mt-1">
+                                        Critical Drivers (Numbered)
+                                        <span className="ml-1 text-pink-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Critical Drivers:</span> The top-ranked factors based on combined impact and uncertainty scores. These numbered drivers (shown as large pink dots) are your most strategic uncertainties—forces that could significantly alter your competitive landscape in unpredictable ways.
+                                    </div>
                                 </div>
-                                <div className="bg-yellow-800/40 p-4 rounded-lg text-center border border-yellow-500/30">
+                                <div className="group relative bg-yellow-800/40 p-4 rounded-lg text-center border border-yellow-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-yellow-300">
                                         {uncertainties.filter(u => u.impact >= 8 && u.uncertainty >= 8).length}
                                     </p>
-                                    <p className="text-xs text-yellow-200 mt-1">High Impact + Uncertainty</p>
+                                    <p className="text-xs text-yellow-200 mt-1">
+                                        High Impact + Uncertainty
+                                        <span className="ml-1 text-yellow-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-yellow-300">High Impact + Uncertainty:</span> Factors scoring 8+ on both dimensions, occupying the upper-right quadrant. This is the "critical scenario drivers zone" where the most important uncertainties live—forces powerful enough to reshape your industry whose outcomes are highly unpredictable.
+                                    </div>
                                 </div>
-                                <div className="bg-green-800/40 p-4 rounded-lg text-center border border-green-500/30">
+                                <div className="group relative bg-green-800/40 p-4 rounded-lg text-center border border-green-500/30 cursor-help">
                                     <p className="text-3xl font-bold text-green-300">3</p>
-                                    <p className="text-xs text-green-200 mt-1">Text-Labeled (Top 3)</p>
+                                    <p className="text-xs text-green-200 mt-1">
+                                        Text-Labeled (Top 3)
+                                        <span className="ml-1 text-green-400">ⓘ</span>
+                                    </p>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-green-300">Text-Labeled Drivers:</span> The top 3 critical drivers are given text labels on the matrix for immediate visibility. This highlights your most strategically important uncertainties at a glance, helping focus discussion on the factors that matter most.
+                                    </div>
                                 </div>
                             </div>
 
@@ -1619,10 +1764,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Critical Drivers List */}
                             <div className="bg-pink-900/30 p-6 rounded-xl border border-pink-500/30">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <TrendingUp className="w-6 h-6" />
-                                    Top 10 Critical Scenario Drivers (Ranked by Combined Score)
-                                </h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                        <TrendingUp className="w-6 h-6" />
+                                        Top 10 Critical Scenario Drivers (Ranked by Combined Score)
+                                        <span className="ml-2 text-lg text-pink-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Critical Scenario Drivers:</span> These are the top-ranked uncertainties based on their combined impact and uncertainty scores. They represent the most strategically important forces that could reshape your industry in unpredictable ways. These drivers become candidates for scenario axes and should be closely monitored as your strategy unfolds.
+                                    </div>
+                                </div>
                                 <p className="text-sm text-pink-200 mb-4">
                                     All 10 drivers are numbered on the matrix. The top 3 also have text labels for immediate identification.
                                 </p>
@@ -1663,10 +1815,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Critical Planning Issues - Impactful But Expected Trends */}
                             <div className="bg-blue-900/30 p-6 rounded-xl border border-blue-500/30">
-                                <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
-                                    <AlertCircle className="w-6 h-6 text-blue-300" />
-                                    <span className="text-blue-300">Critical Planning Issues: Impactful But Expected Trends</span>
-                                </h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 flex items-center gap-2 cursor-help">
+                                        <AlertCircle className="w-6 h-6 text-blue-300" />
+                                        <span className="text-blue-300">Critical Planning Issues: Impactful But Expected Trends</span>
+                                        <span className="ml-2 text-lg text-blue-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-blue-300">Critical Planning Issues:</span> These factors have high impact but low uncertainty—they're powerful forces whose direction is relatively predictable. While not scenario drivers, they're essential for grounding your scenarios in reality. Think of them as the "known constraints" that all scenarios must work within.
+                                    </div>
+                                </div>
                                 <p className="text-sm text-blue-200 mb-4">
                                     These factors (blue dots on matrix) have <span className="font-semibold">high impact but low uncertainty</span>. While they are not key scenario drivers,
                                     they represent <span className="font-semibold">predictable trends with significant consequences</span> that should be incorporated into all scenario narratives
@@ -1730,7 +1889,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 3 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 4: Mapping Driver Connections</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 4: Mapping Driver Connections
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Why Map Driver Connections?</span> Not all critical drivers are equally influential. By mapping how drivers causally influence each other, we identify "linchpin factors"—the forces that, if they shift, create cascading effects throughout the system. These highly connected drivers make excellent scenario axes because their movement reshapes the entire landscape.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">Identifying Linchpin Factors Through Network Analysis</p>
                             </div>
 
@@ -1850,10 +2018,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                             {/* Legend & Insights */}
                             <div className="grid md:grid-cols-2 gap-4">
                                 <div className="bg-purple-800/30 p-6 rounded-xl">
-                                    <h3 className="text-lg font-bold mb-4 flex items-center gap-2">
-                                        <Network className="w-5 h-5" />
-                                        Understanding Connection Types
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-lg font-bold mb-4 flex items-center gap-2 cursor-help">
+                                            <Network className="w-5 h-5" />
+                                            Understanding Connection Types
+                                            <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">Connection Types:</span> Drivers can relate through simple cause-effect (one influences the other) or feedback loops (mutual reinforcement). Understanding these patterns helps identify which drivers are most systemically important and likely to trigger cascading changes.
+                                        </div>
+                                    </div>
 
                                     <div className="space-y-4 text-sm">
                                         {/* Cause-Effect */}
@@ -1893,10 +2068,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 </div>
 
                                 <div className="bg-pink-900/30 p-6 rounded-xl border border-pink-500/30">
-                                    <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-pink-300">
-                                        <Zap className="w-5 h-5" />
-                                        Linchpin Drivers Identified
-                                    </h3>
+                                    <div className="group relative">
+                                        <h3 className="text-lg font-bold mb-3 flex items-center gap-2 text-pink-300 cursor-help">
+                                            <Zap className="w-5 h-5" />
+                                            Linchpin Drivers Identified
+                                            <span className="ml-2 text-sm text-pink-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-pink-300">Linchpin Drivers:</span> These are highly connected factors that influence multiple other drivers. When a linchpin shifts, it creates ripple effects throughout the system. They're prime candidates for scenario axes because their movement fundamentally reshapes the strategic landscape in unpredictable ways.
+                                        </div>
+                                    </div>
                                     <p className="text-sm text-pink-100 mb-3">
                                         Drivers with 2+ connections are highlighted in <span className="font-bold text-pink-300">bright pink</span>. These are the forces that,
                                         if they shift, will create the greatest ripple effects across the entire system.
@@ -1913,7 +2095,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Key Linchpin Drivers */}
                             <div className="bg-gradient-to-r from-pink-900/30 to-purple-900/30 p-6 rounded-xl border border-pink-500/20">
-                                <h3 className="text-xl font-bold mb-4">Strategic Insight: Linchpin Factors</h3>
+                                <div className="group relative">
+                                    <h3 className="text-xl font-bold mb-4 cursor-help">
+                                        Strategic Insight: Linchpin Factors
+                                        <span className="ml-2 text-lg text-pink-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-pink-300">Strategic Insight:</span> This list ranks drivers by their connection count, revealing which factors are most systemically influential. The number shows how many other drivers each factor influences. Higher numbers mean greater systemic leverage—these are the forces that, when they move, reshape the entire competitive landscape.
+                                    </div>
+                                </div>
                                 <div className="space-y-3">
                                     {criticalDrivers
                                         .map(driver => ({
@@ -1953,15 +2144,43 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                     {activeStage === 4 && (
                         <div className="space-y-6">
                             <div className="text-center mb-6">
-                                <h2 className="text-3xl font-bold mb-2 text-purple-300">Step 5: Choosing the Scenario Axes</h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-3xl font-bold mb-2 text-purple-300 cursor-help">
+                                        Step 5: Choosing the Scenario Axes
+                                        <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-purple-300">Critical Decision Point:</span> This stage transforms analytical insights into strategic choices. You must select two axes that will define your scenario space, balancing data-driven rigor with strategic judgment to create diverse, meaningful future worlds.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-purple-200">The Strategic Choice: From Linchpins to Axes</p>
+                            </div>
+
+                            {/* Stage 5 Neural Network Image */}
+                            <div className="flex justify-center my-6">
+                                <img
+                                    src={stage5Image}
+                                    alt="Neural Network Visualization - Strategic Decision Points"
+                                    className="rounded-xl border-2 border-purple-400/50 shadow-2xl"
+                                    style={{ maxWidth: '800px', width: '100%' }}
+                                />
                             </div>
 
                             {/* The Strategic Decision Framework */}
                             <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-8 rounded-xl border-2 border-purple-400/50">
                                 <div className="text-center mb-6">
                                     <AlertCircle className="w-12 h-12 text-yellow-400 mx-auto mb-3" />
-                                    <h3 className="text-2xl font-bold text-yellow-300 mb-2">The Critical Teaching Moment</h3>
+                                    <div className="group relative inline-block">
+                                        <h3 className="text-2xl font-bold text-yellow-300 mb-2 cursor-help">
+                                            The Critical Teaching Moment
+                                            <span className="ml-2 text-lg text-yellow-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-yellow-300">Strategic Judgment in Practice:</span> Scenario planning is not formulaic. This stage teaches that analysis informs choice, but doesn't make it for you. You must weigh competing valid approaches and justify your decision—a core skill in strategic management.
+                                        </div>
+                                    </div>
                                     <p className="text-lg text-purple-100 max-w-3xl mx-auto">
                                         This is not just data analysis—it's <span className="font-bold text-yellow-300">strategic judgment</span>.
                                         There isn't a single "right" answer, but a <span className="font-bold">defensible choice</span> between valid alternatives.
@@ -1976,8 +2195,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <div className="bg-blue-500 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
                                                 1
                                             </div>
-                                            <div>
-                                                <h4 className="text-xl font-bold text-blue-300">The "Data-Driven" Choice</h4>
+                                            <div className="group relative flex-1">
+                                                <h4 className="text-xl font-bold text-blue-300 cursor-help">
+                                                    The "Data-Driven" Choice
+                                                    <span className="ml-2 text-sm text-blue-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-blue-300">Pure Analytical Approach:</span> This method strictly follows the quantitative connections analysis, selecting the two highest-ranked linchpins regardless of dimension. It prioritizes systemic impact over thematic diversity.
+                                                </div>
                                                 <p className="text-xs text-blue-200">Follow the connections map verbatim</p>
                                             </div>
                                         </div>
@@ -2015,8 +2241,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <div className="bg-gradient-to-br from-green-400 to-emerald-500 rounded-full w-12 h-12 flex items-center justify-center text-xl font-bold">
                                                 ✓
                                             </div>
-                                            <div>
-                                                <h4 className="text-xl font-bold text-green-300">The "Thematic Diversity" Choice</h4>
+                                            <div className="group relative flex-1">
+                                                <h4 className="text-xl font-bold text-green-300 cursor-help">
+                                                    The "Thematic Diversity" Choice
+                                                    <span className="ml-2 text-sm text-green-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-green-300">Strategic Synthesis Approach:</span> This method balances analytical rigor with strategic creativity, selecting axes from different STEEP dimensions to maximize scenario diversity and reveal unexpected strategic challenges. It creates richer, more distinct future worlds.
+                                                </div>
                                                 <p className="text-xs text-green-200">Our selected approach ⭐</p>
                                             </div>
                                         </div>
@@ -2051,7 +2284,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                 {/* Why This Choice is Superior for Teaching */}
                                 <div className="bg-purple-900/40 p-5 rounded-xl border border-purple-400/50">
-                                    <h4 className="text-lg font-bold text-purple-200 mb-3">Why the Second Approach is More Powerful:</h4>
+                                    <div className="group relative inline-block mb-3">
+                                        <h4 className="text-lg font-bold text-purple-200 cursor-help">
+                                            Why the Second Approach is More Powerful:
+                                            <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                        </h4>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-purple-300">Pedagogical Rationale:</span> The thematic diversity approach demonstrates three key principles: respecting analytical findings, maximizing strategic insight through diversity, and creating productive tension between dimensions. This is scenario planning at its best.
+                                        </div>
+                                    </div>
                                     <div className="grid md:grid-cols-3 gap-4 text-sm">
                                         <div className="bg-black/20 p-4 rounded-lg">
                                             <div className="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center mb-2 text-lg">1</div>
@@ -2080,8 +2322,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <div className="bg-gradient-to-br from-pink-500 to-purple-500 rounded-lg p-3">
                                             <span className="text-2xl">👥</span>
                                         </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold text-pink-300">Axis 1: Social Dimension</h3>
+                                        <div className="group relative flex-1">
+                                            <h3 className="text-xl font-bold text-pink-300 cursor-help">
+                                                Axis 1: Social Dimension
+                                                <span className="ml-2 text-sm text-pink-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-pink-300">First Axis Selection:</span> Public acceptance represents the critical social linchpin that determines BCI adoption. This axis captures the spectrum from societal resistance to enthusiastic embrace, fundamentally shaping market viability and business strategy.
+                                            </div>
                                             <p className="text-sm text-pink-200">{chosenAxes.axis1.dimension}</p>
                                         </div>
                                     </div>
@@ -2128,8 +2377,15 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <div className="bg-gradient-to-br from-green-500 to-blue-500 rounded-lg p-3">
                                             <span className="text-2xl">⚡</span>
                                         </div>
-                                        <div>
-                                            <h3 className="text-xl font-bold text-green-300">Axis 2: Technological Dimension</h3>
+                                        <div className="group relative flex-1">
+                                            <h3 className="text-xl font-bold text-green-300 cursor-help">
+                                                Axis 2: Technological Dimension
+                                                <span className="ml-2 text-sm text-green-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-green-300">Second Axis Selection:</span> Non-invasive BCI breakthroughs represent the highest-impact technological uncertainty. This axis creates powerful tension with social acceptance, revealing how technical capability and societal readiness interact to shape futures.
+                                            </div>
                                             <p className="text-sm text-green-200">{chosenAxes.axis2.dimension}</p>
                                         </div>
                                     </div>
@@ -2177,8 +2433,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     <div className="bg-yellow-500 rounded-full p-3 flex-shrink-0">
                                         <Brain className="w-8 h-8" />
                                     </div>
-                                    <div>
-                                        <h3 className="text-xl font-bold text-yellow-300 mb-3">The Key Lesson for Your Project:</h3>
+                                    <div className="flex-1">
+                                        <div className="group relative inline-block mb-3">
+                                            <h3 className="text-xl font-bold text-yellow-300 cursor-help">
+                                                The Key Lesson for Your Project:
+                                                <span className="ml-2 text-sm text-yellow-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-yellow-300">Critical Student Takeaway:</span> Your project success depends on demonstrating strategic judgment, not finding "correct" answers. Show your reasoning process, justify your choices, and explain trade-offs. The framework guides thinking—it doesn't replace it.
+                                            </div>
+                                        </div>
                                         <div className="space-y-2 text-sm text-yellow-100">
                                             <p className="bg-black/20 p-3 rounded-lg">
                                                 <span className="font-semibold text-yellow-200">There wasn't a single "right" answer.</span> It was a <span className="font-semibold">strategic choice</span> between
@@ -2226,9 +2491,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 <div className="inline-block bg-gradient-to-r from-cyan-500 to-blue-500 p-4 rounded-2xl">
                                     <Globe className="w-12 h-12" />
                                 </div>
-                                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400">
-                                    Stage 6: Crafting Scenario Narratives
-                                </h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-400 cursor-help">
+                                        Stage 6: Crafting Scenario Narratives
+                                        <span className="ml-2 text-3xl text-cyan-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-cyan-300">Purpose of Scenario Narratives:</span> Transform abstract uncertainties into concrete, vivid stories that make different futures feel real. Rich narratives help decision-makers emotionally connect with alternative futures and identify strategic opportunities and threats that numbers alone cannot reveal.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-cyan-200 max-w-4xl mx-auto">
                                     Building four distinct and plausible future worlds from our chosen axes
                                 </p>
@@ -2236,7 +2508,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* The 2x2 Scenario Matrix */}
                             <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 p-6 rounded-xl border-2 border-cyan-400/30">
-                                <h3 className="text-2xl font-bold text-cyan-300 mb-12 text-center">The Scenario Matrix</h3>
+                                <div className="group relative inline-block w-full mb-12">
+                                    <h3 className="text-2xl font-bold text-cyan-300 text-center cursor-help">
+                                        The Scenario Matrix
+                                        <span className="ml-2 text-xl text-cyan-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-cyan-300">The 2x2 Matrix Framework:</span> Combining two critical uncertainties creates four distinct quadrants, each representing a logically coherent future world. This structure ensures scenarios are comprehensively different and cover the full range of plausible outcomes.
+                                    </div>
+                                </div>
 
                                 {/* Matrix Visualization */}
                                 <div className="relative bg-black/20 p-16 rounded-lg">
@@ -2335,7 +2616,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <Brain className="w-10 h-10" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-3xl font-bold text-blue-300 mb-2">{scenarios.scenario1.name}</h3>
+                                            <div className="group relative">
+                                                <h3 className="text-3xl font-bold text-blue-300 mb-2 flex items-center gap-3 cursor-help">
+                                                    <span className="bg-blue-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 1</span>
+                                                    {scenarios.scenario1.name}
+                                                    <span className="ml-2 text-2xl text-blue-400">ⓘ</span>
+                                                </h3>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-blue-300">Scenario 1 Position:</span> This quadrant represents a world where regulatory barriers remain restrictive AND technological breakthroughs stall. Understanding this "worst-case" helps identify risks and develop contingency plans if progress slows.
+                                                </div>
+                                            </div>
                                             <p className="text-lg text-blue-200 italic mb-3">{scenarios.scenario1.tagline}</p>
                                             <div className="flex gap-4 text-sm">
                                                 <span className="bg-blue-800/50 px-3 py-1 rounded-full">{scenarios.scenario1.year}</span>
@@ -2355,7 +2646,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-blue-300 mb-2">Primary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-blue-300 cursor-help">
+                                                    Primary Factors:
+                                                    <span className="ml-2 text-sm text-blue-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-blue-300">Primary Factors:</span> The two axis extremes that define this quadrant's core characteristics and drive the fundamental nature of this future world.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-blue-100">
                                                 {scenarios.scenario1.primaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2363,7 +2663,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </ul>
                                         </div>
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-blue-300 mb-2">Secondary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-blue-300 cursor-help">
+                                                    Secondary Factors:
+                                                    <span className="ml-2 text-sm text-blue-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-blue-300">Secondary Factors:</span> Additional uncertainties from your analysis that naturally align with this scenario, enriching the narrative and making it more comprehensive.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-blue-100">
                                                 {scenarios.scenario1.secondaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2374,9 +2683,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     {/* Newspaper Headlines */}
                                     <div className="bg-white/95 p-6 rounded-lg text-gray-900 mb-6">
-                                        <h4 className="text-2xl font-bold mb-4 text-center border-b-2 border-gray-300 pb-2">
-                                            {scenarios.scenario1.year} News Headlines
-                                        </h4>
+                                        <div className="group relative inline-block w-full mb-4">
+                                            <h4 className="text-2xl font-bold text-center border-b-2 border-gray-300 pb-2 cursor-help">
+                                                {scenarios.scenario1.year} News Headlines
+                                                <span className="ml-2 text-lg text-blue-600">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-blue-300">News Headlines Format:</span> Using familiar news formats makes scenarios tangible and relatable. Headlines capture key developments concisely and help stakeholders imagine how this future would actually unfold in real-time.
+                                            </div>
+                                        </div>
                                         <div className="space-y-4">
                                             {scenarios.scenario1.headlines.map((headline, idx) => (
                                                 <div key={idx} className="border-l-4 border-blue-600 pl-4 py-2">
@@ -2391,7 +2707,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
 
                                     <div className="bg-black/30 p-6 rounded-lg mb-6">
-                                        <h4 className="font-bold text-blue-300 mb-3">World Description:</h4>
+                                        <div className="group relative inline-block mb-3">
+                                            <h4 className="font-bold text-blue-300 cursor-help">
+                                                World Description:
+                                                <span className="ml-2 text-sm text-blue-400">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-blue-300">World Description:</span> A comprehensive narrative painting the big picture of this future, focusing on external market conditions and societal dynamics—not your organization's response.
+                                            </div>
+                                        </div>
                                         <p className="text-sm text-blue-100 leading-relaxed">{scenarios.scenario1.worldDescription}</p>
                                     </div>
 
@@ -2422,7 +2747,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <Brain className="w-10 h-10" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-3xl font-bold text-orange-300 mb-2">{scenarios.scenario2.name}</h3>
+                                            <div className="group relative">
+                                                <h3 className="text-3xl font-bold text-orange-300 mb-2 flex items-center gap-3 cursor-help">
+                                                    <span className="bg-orange-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 2</span>
+                                                    {scenarios.scenario2.name}
+                                                    <span className="ml-2 text-2xl text-orange-400">ⓘ</span>
+                                                </h3>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-orange-300">Scenario 2 Position:</span> This quadrant explores a world where technology advances rapidly BUT regulations remain restrictive. This tension creates unique strategic challenges—how to capture value when innovation outpaces policy.
+                                                </div>
+                                            </div>
                                             <p className="text-lg text-orange-200 italic mb-3">{scenarios.scenario2.tagline}</p>
                                             <div className="flex gap-4 text-sm">
                                                 <span className="bg-orange-800/50 px-3 py-1 rounded-full">{scenarios.scenario2.year}</span>
@@ -2442,7 +2777,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-orange-300 mb-2">Primary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-orange-300 cursor-help">
+                                                    Primary Factors:
+                                                    <span className="ml-2 text-sm text-orange-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-orange-300">Primary Factors:</span> The two axis extremes that define this quadrant's core characteristics and drive the fundamental nature of this future world.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-orange-100">
                                                 {scenarios.scenario2.primaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2450,7 +2794,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </ul>
                                         </div>
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-orange-300 mb-2">Secondary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-orange-300 cursor-help">
+                                                    Secondary Factors:
+                                                    <span className="ml-2 text-sm text-orange-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-orange-300">Secondary Factors:</span> Additional uncertainties from your analysis that naturally align with this scenario, enriching the narrative and making it more comprehensive.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-orange-100">
                                                 {scenarios.scenario2.secondaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2461,9 +2814,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     {/* Social Media Thread */}
                                     <div className="bg-white/95 p-6 rounded-lg mb-6 text-gray-900">
-                                        <h4 className="text-2xl font-bold mb-4 text-center text-orange-700">
-                                            Social Media Thread - {scenarios.scenario2.year}
-                                        </h4>
+                                        <div className="group relative inline-block w-full mb-4">
+                                            <h4 className="text-2xl font-bold text-center text-orange-700 cursor-help">
+                                                Social Media Thread - {scenarios.scenario2.year}
+                                                <span className="ml-2 text-lg text-orange-600">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-orange-300">Social Media Format:</span> This format captures public discourse and emotional reactions. Social media threads reveal how different stakeholder groups perceive and debate emerging developments—crucial for understanding societal acceptance.
+                                            </div>
+                                        </div>
                                         <div className="space-y-4 max-h-96 overflow-y-auto">
                                             {scenarios.scenario2.thread.map((tweet, idx) => (
                                                 <div key={idx} className="bg-orange-50 p-4 rounded-lg border-l-4 border-orange-600">
@@ -2487,7 +2847,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
 
                                     <div className="bg-black/30 p-6 rounded-lg mb-6">
-                                        <h4 className="font-bold text-orange-300 mb-3">World Description:</h4>
+                                        <div className="group relative inline-block mb-3">
+                                            <h4 className="font-bold text-orange-300 cursor-help">
+                                                World Description:
+                                                <span className="ml-2 text-sm text-orange-400">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-orange-300">World Description:</span> A comprehensive narrative painting the big picture of this future, focusing on external market conditions and societal dynamics—not your organization's response.
+                                            </div>
+                                        </div>
                                         <p className="text-sm text-orange-100 leading-relaxed">{scenarios.scenario2.worldDescription}</p>
                                     </div>
 
@@ -2518,7 +2887,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <Brain className="w-10 h-10" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-3xl font-bold text-purple-300 mb-2">{scenarios.scenario3.name}</h3>
+                                            <div className="group relative">
+                                                <h3 className="text-3xl font-bold text-purple-300 mb-2 flex items-center gap-3 cursor-help">
+                                                    <span className="bg-purple-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 3</span>
+                                                    {scenarios.scenario3.name}
+                                                    <span className="ml-2 text-2xl text-purple-400">ⓘ</span>
+                                                </h3>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-purple-300">Scenario 3 Position:</span> This quadrant represents supportive regulations BUT slow technological progress. Understanding how to navigate bureaucracy while waiting for innovation teaches patience and positioning strategies.
+                                                </div>
+                                            </div>
                                             <p className="text-lg text-purple-200 italic mb-3">{scenarios.scenario3.tagline}</p>
                                             <div className="flex gap-4 text-sm">
                                                 <span className="bg-purple-800/50 px-3 py-1 rounded-full">{scenarios.scenario3.year}</span>
@@ -2538,7 +2917,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-purple-300 mb-2">Primary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-purple-300 cursor-help">
+                                                    Primary Factors:
+                                                    <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-purple-300">Primary Factors:</span> The two axis extremes that define this quadrant's core characteristics and drive the fundamental nature of this future world.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-purple-100">
                                                 {scenarios.scenario3.primaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2546,7 +2934,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </ul>
                                         </div>
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-purple-300 mb-2">Secondary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-purple-300 cursor-help">
+                                                    Secondary Factors:
+                                                    <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-purple-300">Secondary Factors:</span> Additional uncertainties from your analysis that naturally align with this scenario, enriching the narrative and making it more comprehensive.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-purple-100">
                                                 {scenarios.scenario3.secondaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2558,7 +2955,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     {/* CEO Memo */}
                                     <div className="bg-white/95 p-6 rounded-lg text-gray-900 mb-6">
                                         <div className="border-b-2 border-gray-300 pb-3 mb-4">
-                                            <h4 className="text-xl font-bold text-purple-900">MEMORANDUM</h4>
+                                            <div className="group relative inline-block">
+                                                <h4 className="text-xl font-bold text-purple-900 cursor-help">
+                                                    MEMORANDUM
+                                                    <span className="ml-2 text-base text-purple-600">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-purple-300">CEO Memo Format:</span> Internal corporate communications reveal how industry leaders interpret and respond to environmental shifts. Memos show strategic thinking in action and organizational priorities.
+                                                </div>
+                                            </div>
                                             <div className="grid grid-cols-2 gap-2 mt-2 text-sm">
                                                 <div><span className="font-semibold">From:</span> {scenarios.scenario3.memo.from}</div>
                                                 <div><span className="font-semibold">Date:</span> {scenarios.scenario3.memo.date}</div>
@@ -2573,7 +2979,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
 
                                     <div className="bg-black/30 p-6 rounded-lg mb-6">
-                                        <h4 className="font-bold text-purple-300 mb-3">World Description:</h4>
+                                        <div className="group relative inline-block mb-3">
+                                            <h4 className="font-bold text-purple-300 cursor-help">
+                                                World Description:
+                                                <span className="ml-2 text-sm text-purple-400">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-purple-300">World Description:</span> A comprehensive narrative painting the big picture of this future, focusing on external market conditions and societal dynamics—not your organization's response.
+                                            </div>
+                                        </div>
                                         <p className="text-sm text-purple-100 leading-relaxed">{scenarios.scenario3.worldDescription}</p>
                                     </div>
 
@@ -2604,7 +3019,17 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <Brain className="w-10 h-10" />
                                         </div>
                                         <div className="flex-1">
-                                            <h3 className="text-3xl font-bold text-green-300 mb-2">{scenarios.scenario4.name}</h3>
+                                            <div className="group relative">
+                                                <h3 className="text-3xl font-bold text-green-300 mb-2 flex items-center gap-3 cursor-help">
+                                                    <span className="bg-green-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 4</span>
+                                                    {scenarios.scenario4.name}
+                                                    <span className="ml-2 text-2xl text-green-400">ⓘ</span>
+                                                </h3>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-green-300">Scenario 4 Position:</span> This "best-case" quadrant combines rapid technological breakthroughs AND supportive regulations. Understanding this optimistic future helps identify maximum growth opportunities and required capabilities.
+                                                </div>
+                                            </div>
                                             <p className="text-lg text-green-200 italic mb-3">{scenarios.scenario4.tagline}</p>
                                             <div className="flex gap-4 text-sm">
                                                 <span className="bg-green-800/50 px-3 py-1 rounded-full">{scenarios.scenario4.year}</span>
@@ -2624,7 +3049,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     <div className="grid md:grid-cols-2 gap-6 mb-6">
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-green-300 mb-2">Primary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-green-300 cursor-help">
+                                                    Primary Factors:
+                                                    <span className="ml-2 text-sm text-green-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-green-300">Primary Factors:</span> The two axis extremes that define this quadrant's core characteristics and drive the fundamental nature of this future world.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-green-100">
                                                 {scenarios.scenario4.primaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2632,7 +3066,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </ul>
                                         </div>
                                         <div className="bg-black/20 p-4 rounded-lg">
-                                            <h4 className="font-bold text-green-300 mb-2">Secondary Factors:</h4>
+                                            <div className="group relative inline-block mb-2">
+                                                <h4 className="font-bold text-green-300 cursor-help">
+                                                    Secondary Factors:
+                                                    <span className="ml-2 text-sm text-green-400">ⓘ</span>
+                                                </h4>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-green-300">Secondary Factors:</span> Additional uncertainties from your analysis that naturally align with this scenario, enriching the narrative and making it more comprehensive.
+                                                </div>
+                                            </div>
                                             <ul className="space-y-1 text-sm text-green-100">
                                                 {scenarios.scenario4.secondaryFactors.map((factor, idx) => (
                                                     <li key={idx}>• {factor}</li>
@@ -2643,9 +3086,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                                     {/* Day in the Life Narrative */}
                                     <div className="bg-white/95 p-6 rounded-lg mb-6 text-gray-900">
-                                        <h4 className="text-2xl font-bold mb-4 text-center text-green-700">
-                                            A Day in the Life - {scenarios.scenario4.year}
-                                        </h4>
+                                        <div className="group relative inline-block w-full mb-4">
+                                            <h4 className="text-2xl font-bold text-center text-green-700 cursor-help">
+                                                A Day in the Life - {scenarios.scenario4.year}
+                                                <span className="ml-2 text-lg text-green-600">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-green-300">Day in the Life Format:</span> Following an individual through their daily routine humanizes the scenario and reveals how macro trends translate to lived experiences. This format builds empathy and deepens understanding.
+                                            </div>
+                                        </div>
                                         <div className="bg-green-50 border-l-4 border-green-600 p-4 rounded-lg mb-4 text-sm">
                                             <p><span className="font-bold text-green-800">Character:</span> {scenarios.scenario4.character.name}, {scenarios.scenario4.character.age}</p>
                                             <p><span className="font-bold text-green-800">Profession:</span> {scenarios.scenario4.character.profession}</p>
@@ -2659,7 +3109,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
 
                                     <div className="bg-black/30 p-6 rounded-lg mb-6">
-                                        <h4 className="font-bold text-green-300 mb-3">World Description:</h4>
+                                        <div className="group relative inline-block mb-3">
+                                            <h4 className="font-bold text-green-300 cursor-help">
+                                                World Description:
+                                                <span className="ml-2 text-sm text-green-400">ⓘ</span>
+                                            </h4>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-green-300">World Description:</span> A comprehensive narrative painting the big picture of this future, focusing on external market conditions and societal dynamics—not your organization's response.
+                                            </div>
+                                        </div>
                                         <p className="text-sm text-green-100 leading-relaxed">{scenarios.scenario4.worldDescription}</p>
                                     </div>
 
@@ -2743,12 +3202,29 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 <div className="inline-block bg-gradient-to-r from-orange-500 to-red-500 p-4 rounded-2xl">
                                     <Target className="w-12 h-12" />
                                 </div>
-                                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400">
-                                    Stage 7: Assess the Impact of Scenarios
-                                </h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-red-400 cursor-help">
+                                        Stage 7: Assess the Impact of Scenarios
+                                        <span className="ml-2 text-3xl text-orange-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-orange-300">Why Impact Assessment Matters:</span> This stage transforms scenarios from stories into strategic insights. By analyzing how each future world affects both your industry structure and internal capabilities, you identify which strategic moves are robust across scenarios (no-regrets actions) and which are scenario-specific bets. This is where scenario planning delivers actionable value.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-orange-200 max-w-4xl mx-auto">
                                     Using scenarios as a 'wind tunnel' to stress-test our strategic readiness
                                 </p>
+
+                                {/* Stage 7 Impact Assessment Image */}
+                                <div className="flex justify-center my-6">
+                                    <img
+                                        src={stage7Image}
+                                        alt="Impact Assessment Visualization"
+                                        className="rounded-xl border-2 border-orange-400/50 shadow-2xl"
+                                        style={{ maxWidth: '800px', width: '100%' }}
+                                    />
+                                </div>
                             </div>
 
                             {/* Overview: The Wind Tunnel Concept */}
@@ -2758,7 +3234,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <BarChart3 className="w-8 h-8" />
                                     </div>
                                     <div>
-                                        <h3 className="text-2xl font-bold text-orange-300 mb-3">The Wind Tunnel Methodology</h3>
+                                        <div className="group relative inline-block mb-3">
+                                            <h3 className="text-2xl font-bold text-orange-300 cursor-help">
+                                                The Wind Tunnel Methodology
+                                                <span className="ml-2 text-xl text-orange-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-orange-300">The Wind Tunnel Metaphor:</span> Like engineers test aircraft in simulated conditions, we test our strategy against each plausible future. This systematic stress-testing reveals which strategic choices remain sound across multiple scenarios and which become vulnerable in specific futures.
+                                            </div>
+                                        </div>
                                         <p className="text-orange-100 mb-4">
                                             Just as engineers test aircraft designs in wind tunnels, we must test our business strategy against each future scenario.
                                             For each world, we assess:
@@ -2791,7 +3276,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                     </div>
                                     <div className="flex-1">
                                         <div className="flex items-center gap-3 mb-3">
-                                            <h3 className="text-2xl font-bold text-purple-300">Pedagogical Note: Early Warning Indicators</h3>
+                                            <div className="group relative inline-block">
+                                                <h3 className="text-2xl font-bold text-purple-300 cursor-help">
+                                                    Pedagogical Note: Early Warning Indicators
+                                                    <span className="ml-2 text-xl text-purple-400">ⓘ</span>
+                                                </h3>
+                                                {/* Tooltip */}
+                                                <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                    <span className="font-semibold text-purple-300">Why EWIs Matter:</span> Early Warning Indicators bridge scenario planning and action. They are measurable signals that tell you which future is emerging, triggering specific strategic responses. This transforms scenarios from theoretical exercises into dynamic monitoring systems.
+                                                </div>
+                                            </div>
                                             <span className="px-3 py-1 bg-purple-500/30 rounded-full text-xs font-semibold text-purple-200 border border-purple-400/50">
                                                 Topic 4 Preview
                                             </span>
@@ -2830,7 +3324,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
 
                             {/* Scenario-by-Scenario Analysis */}
                             <div className="space-y-6">
-                                <h3 className="text-2xl font-bold text-center text-orange-300">Impact Analysis by Scenario</h3>
+                                <div className="group relative flex justify-center">
+                                    <h3 className="text-2xl font-bold text-center text-orange-300 cursor-help">
+                                        Impact Analysis by Scenario
+                                        <span className="ml-2 text-xl text-orange-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-orange-300">Systematic Scenario Testing:</span> Each scenario below is analyzed through two lenses: External Impact (how the industry structure changes using Porter's 6 Forces) and Internal Impact (how your capabilities' strategic value shifts). This dual analysis reveals opportunities, threats, and strategic priorities unique to each future world.
+                                    </div>
+                                </div>
 
                                 {/* Scenario 1: The Therapeutic Bottleneck */}
                                 <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 p-6 rounded-xl border-2 border-blue-400/30">
@@ -2854,7 +3357,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-blue-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-blue-300">What this analyzes:</span> How this scenario reshapes the competitive landscape using Porter's 6 Forces. Compare present vs. future to identify which industry dynamics intensify, weaken, or shift—revealing strategic threats and opportunities external to your organization.
                                                 </div>
                                             </div>
@@ -2954,7 +3457,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">New Entrants</span>
                                                                     <span className="text-blue-300">60%→30%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why LOW (30%):</span> Stricter regulations and slow market growth create high barriers. Established medical relationships become more valuable, making it harder for new players to enter.
                                                                 </div>
                                                             </div>
@@ -2963,7 +3466,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">Supplier Power</span>
                                                                     <span className="text-blue-300">80%→80%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why HIGH (80%):</span> Neurosurgeon scarcity remains acute. Slow tech progress means non-invasive alternatives don't scale, keeping surgical specialists as critical bottleneck suppliers.
                                                                 </div>
                                                             </div>
@@ -2972,7 +3475,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">Buyer Power</span>
                                                                     <span className="text-blue-300">50%→45%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why MODERATE (45%):</span> Patients with severe conditions have limited alternatives. Supply constraints reduce buyer negotiating power as demand exceeds capacity.
                                                                 </div>
                                                             </div>
@@ -2981,7 +3484,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">Substitutes</span>
                                                                     <span className="text-blue-300">40%→30%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why LOW (30%):</span> Slow tech progress means alternative treatments (drugs, non-invasive therapies) advance slowly. For severe cases, BCIs remain the only viable solution.
                                                                 </div>
                                                             </div>
@@ -2990,7 +3493,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">Rivalry</span>
                                                                     <span className="text-blue-300">70%→60%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why MODERATE (60%):</span> Small market size with established players creates moderate rivalry. Competition focuses on regulatory excellence and medical partnerships rather than aggressive price wars.
                                                                 </div>
                                                             </div>
@@ -2999,7 +3502,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-blue-200">Complementors</span>
                                                                     <span className="text-blue-300">40%→50%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-blue-300">Why MODERATE (50%):</span> Training programs and surgical robotics become more important as enablers. Medical institutions and training partners grow in strategic value.
                                                                 </div>
                                                             </div>
@@ -3044,7 +3547,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-blue-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-blue-300">What this analyzes:</span> How this scenario changes the strategic value of your current capabilities. Some capabilities become "crown jewels" (critically valuable), others become "commodities" (less differentiating), and gaps emerge. This reveals what to invest in, divest from, or build.
                                                 </div>
                                             </div>
@@ -3081,7 +3584,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-blue-300">Strategic Shift:</span> In a slow-growth, low-tech-progress world, investment in advanced non-invasive R&D declines in strategic value from 70% to 40%. The market remains small and medical-focused, making cutting-edge research less strategic.
                                                         </div>
                                                     </div>
@@ -3111,7 +3614,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-blue-300">Strategic Shift:</span> With stringent FDA regulations and lengthy approval cycles (8-12 years), navigating regulatory complexity becomes a critical competitive advantage in this cautious environment. Value increases from 60% to 85% as regulatory expertise becomes the key differentiator.
                                                         </div>
                                                     </div>
@@ -3141,7 +3644,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-blue-300">Strategic Shift:</span> Medical partnerships remain important for the limited therapeutic market, but their value is constrained by slow market growth and narrow application focus (paralysis, neurological conditions only). Value remains stable at 65%.
                                                         </div>
                                                     </div>
@@ -3156,7 +3659,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                         <span className="text-xs text-blue-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
-                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                         <span className="font-semibold text-blue-300">What this analyzes:</span> By combining external industry changes with internal capability shifts, this shows how your competitive position evolves in this scenario. It identifies new strengths (moats), emerging weaknesses (vulnerabilities), and strategic inflection points requiring decisive action.
                                                     </div>
                                                 </div>
@@ -3228,7 +3731,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-orange-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-orange-300">What this analyzes:</span> How this scenario reshapes the competitive landscape using Porter's 6 Forces. Compare present vs. future to identify which industry dynamics intensify, weaken, or shift—revealing strategic threats and opportunities external to your organization.
                                                 </div>
                                             </div>
@@ -3328,7 +3831,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">New Entrants</span>
                                                                     <span className="text-orange-300">60%→95%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why VERY HIGH (95%):</span> Offshore deregulation removes all barriers to entry. Anyone can launch BCI products without FDA approval, creating a flood of new competitors entering the market.
                                                                 </div>
                                                             </div>
@@ -3337,7 +3840,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">Supplier Power</span>
                                                                     <span className="text-orange-300">80%→50%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why MODERATE (50%):</span> Offshore markets attract more medical talent and alternative suppliers emerge in deregulated environments, reducing dependency on scarce neurosurgeons.
                                                                 </div>
                                                             </div>
@@ -3346,7 +3849,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">Buyer Power</span>
                                                                     <span className="text-orange-300">50%→70%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why HIGH (70%):</span> Explosion of competitors gives customers abundant choice. Price-sensitive patients can shop around in deregulated markets, driving down prices and increasing their negotiating power.
                                                                 </div>
                                                             </div>
@@ -3355,7 +3858,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">Substitutes</span>
                                                                     <span className="text-orange-300">40%→60%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why MODERATE (60%):</span> Fast tech progress creates more alternative solutions (advanced pharmaceuticals, non-invasive neurotechs). However, BCIs still offer unique capabilities that substitutes can't match.
                                                                 </div>
                                                             </div>
@@ -3364,7 +3867,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">Rivalry</span>
                                                                     <span className="text-orange-300">70%→95%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why EXTREME (95%):</span> Deregulation triggers brutal price competition and race-to-the-bottom dynamics. Companies compete on cost rather than quality, creating extreme rivalry and margin erosion.
                                                                 </div>
                                                             </div>
@@ -3373,7 +3876,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-orange-200">Complementors</span>
                                                                     <span className="text-orange-300">40%→30%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-orange-300">Why LOW (30%):</span> Quality complementors (training, infrastructure) are less valuable in a deregulated "Wild West" market. Speed to market matters more than ecosystem partnerships.
                                                                 </div>
                                                             </div>
@@ -3416,7 +3919,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-orange-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-orange-300">What this analyzes:</span> How this scenario changes the strategic value of your current capabilities. Some capabilities become "crown jewels" (critically valuable), others become "commodities" (less differentiating), and gaps emerge. This reveals what to invest in, divest from, or build.
                                                 </div>
                                             </div>
@@ -3452,7 +3955,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-orange-300">Strategic Shift:</span> In a world where tech has advanced but regulations block it, our ability to develop breakthrough technology (quantum sensors, AI-driven signal processing) becomes critical - even if we can't deploy it everywhere yet. Value surges from 70% to 90%.
                                                         </div>
                                                     </div>
@@ -3482,7 +3985,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-orange-300">Strategic Shift:</span> With regulatory fragmentation (EU bans, US patchwork, offshore havens), expertly navigating complex multi-jurisdictional compliance becomes the difference between market access and exclusion. Value rises from 60% to 85%.
                                                         </div>
                                                     </div>
@@ -3512,7 +4015,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-orange-300">Strategic Shift:</span> Neural tourism to Singapore, Dubai, and São Paulo ($4.2B market) creates new opportunities - but requires capabilities in international partnerships, medical tourism infrastructure, and operating in "BCI haven" cities. Rises from 20% to 70% as offshore markets become critical.
                                                         </div>
                                                     </div>
@@ -3526,7 +4029,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                         <span className="text-xs text-orange-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
-                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-orange-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                         <span className="font-semibold text-orange-300">What this analyzes:</span> By combining external industry changes with internal capability shifts, this shows how your competitive position evolves in this scenario. It identifies new strengths (moats), emerging weaknesses (vulnerabilities), and strategic inflection points requiring decisive action.
                                                     </div>
                                                 </div>
@@ -3597,7 +4100,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-purple-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-purple-300">What this analyzes:</span> How this scenario reshapes the competitive landscape using Porter's 6 Forces. Compare present vs. future to identify which industry dynamics intensify, weaken, or shift—revealing strategic threats and opportunities external to your organization.
                                                 </div>
                                             </div>
@@ -3709,7 +4212,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">New Entrants</span>
                                                                     <span className="text-purple-300">60%→10%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why VERY LOW (10%):</span> Neurosurgeon scarcity creates an insurmountable barrier. Without access to skilled surgeons, new entrants cannot enter the invasive BCI market. Existing players control the talent pool.
                                                                 </div>
                                                             </div>
@@ -3718,7 +4221,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">Supplier Power</span>
                                                                     <span className="text-purple-300">80%→95%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why EXTREME (95%):</span> Massive demand for invasive BCIs meets severe neurosurgeon shortage. Surgeons become kingmakers who can dictate terms, extract premium fees, and control which companies succeed. Ultimate bottleneck.
                                                                 </div>
                                                             </div>
@@ -3727,7 +4230,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">Buyer Power</span>
                                                                     <span className="text-purple-300">50%→25%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why LOW (25%):</span> Demand far exceeds surgical capacity. Patients face multi-year waitlists and have zero negotiating power. You can charge premium prices because supply is so constrained.
                                                                 </div>
                                                             </div>
@@ -3736,7 +4239,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">Substitutes</span>
                                                                     <span className="text-purple-300">40%→20%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why LOW (20%):</span> High social acceptance means patients specifically want invasive BCIs, not substitutes. Non-invasive alternatives can't deliver the same transformative results. Limited threat from alternatives.
                                                                 </div>
                                                             </div>
@@ -3745,7 +4248,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">Rivalry</span>
                                                                     <span className="text-purple-300">70%→50%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why MODERATE (50%):</span> Limited surgical capacity forces companies to compete for surgeon partnerships rather than on price. Rivalry shifts from customer acquisition to supplier relationships. Gentler competition.
                                                                 </div>
                                                             </div>
@@ -3754,7 +4257,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-purple-200">Complementors</span>
                                                                     <span className="text-purple-300">40%→85%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-purple-300">Why HIGH (85%):</span> Training programs, surgical robotics, and neurosurgeon recruitment partners become critically valuable. Anyone who can expand surgical capacity is a strategic goldmine. Ecosystem partners are essential.
                                                                 </div>
                                                             </div>
@@ -3796,7 +4299,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-purple-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-purple-300">What this analyzes:</span> How this scenario changes the strategic value of your current capabilities. Some capabilities become "crown jewels" (critically valuable), others become "commodities" (less differentiating), and gaps emerge. This reveals what to invest in, divest from, or build.
                                                 </div>
                                             </div>
@@ -3832,7 +4335,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-purple-300">Strategic Shift:</span> With only 3,200 certified BCI neurosurgeons globally and 18-month waitlists, relationships with top surgical partners transform from important (65%) to absolutely critical (98%) - controlling scarce surgical capacity is like controlling oil wells.
                                                         </div>
                                                     </div>
@@ -3862,7 +4365,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-purple-300">Strategic Shift:</span> The ability to expand surgical capacity through medical school partnerships and surgeon training programs transforms from moderately important (40%) to strategically critical (85%) - this is the only path to meeting massive pent-up demand worth billions.
                                                         </div>
                                                     </div>
@@ -3892,7 +4395,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-purple-300">Strategic Shift:</span> With non-invasive tech progress stalled (still only ~45 channels), continued R&D investment declines in strategic value from 70% to 35%. The market has accepted invasive procedures - the bottleneck is surgical capacity, not technology advancement.
                                                         </div>
                                                     </div>
@@ -3906,7 +4409,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                         <span className="text-xs text-purple-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
-                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                         <span className="font-semibold text-purple-300">What this analyzes:</span> By combining external industry changes with internal capability shifts, this shows how your competitive position evolves in this scenario. It identifies new strengths (moats), emerging weaknesses (vulnerabilities), and strategic inflection points requiring decisive action.
                                                     </div>
                                                 </div>
@@ -3977,7 +4480,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-green-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-green-300">What this analyzes:</span> How this scenario reshapes the competitive landscape using Porter's 6 Forces. Compare present vs. future to identify which industry dynamics intensify, weaken, or shift—revealing strategic threats and opportunities external to your organization.
                                                 </div>
                                             </div>
@@ -4077,7 +4580,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">New Entrants</span>
                                                                     <span className="text-green-300">60%→85%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why HIGH (85%):</span> Mass consumer market attracts Apple, Meta, Google, and other tech giants. Their brand power, distribution networks, and deep pockets make them formidable new entrants challenging medical-device incumbents.
                                                                 </div>
                                                             </div>
@@ -4086,7 +4589,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">Supplier Power</span>
                                                                     <span className="text-green-300">80%→15%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why VERY LOW (15%):</span> Non-invasive BCIs dominate, eliminating neurosurgeon dependency. Hardware components become standardized and commoditized. Suppliers have minimal leverage in a scaled consumer market.
                                                                 </div>
                                                             </div>
@@ -4095,7 +4598,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">Buyer Power</span>
                                                                     <span className="text-green-300">50%→75%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why HIGH (75%):</span> Consumers face abundant choice from multiple competing platforms. Low switching costs and transparent pricing give buyers strong negotiating power. Must compete on features and price.
                                                                 </div>
                                                             </div>
@@ -4104,7 +4607,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">Substitutes</span>
                                                                     <span className="text-green-300">40%→65%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why MODERATE (65%):</span> Advanced AI, AR/VR, and other cognitive enhancement tools compete for consumer attention. BCIs aren't the only path to augmentation. Substitutes are viable for many use cases.
                                                                 </div>
                                                             </div>
@@ -4113,7 +4616,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">Rivalry</span>
                                                                     <span className="text-green-300">70%→90%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why VERY HIGH (90%):</span> "Platform wars" create intense competition. Tech giants battle for market share, ecosystem control, and data advantage. Aggressive marketing, R&D races, and platform lock-in strategies drive extreme rivalry.
                                                                 </div>
                                                             </div>
@@ -4122,7 +4625,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                                     <span className="text-green-200">Complementors</span>
                                                                     <span className="text-green-300">40%→90%</span>
                                                                 </div>
-                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                                <div className="absolute left-0 top-full mt-2 w-64 bg-gray-900 text-white text-xs p-2 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                                     <span className="font-semibold text-green-300">Why VERY HIGH (90%):</span> Thriving app ecosystem, AI developers, content creators, and integration partners become critical. Success depends on attracting the best complementors to your platform. Network effects rule.
                                                                 </div>
                                                             </div>
@@ -4164,7 +4667,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <span className="ml-1 text-xs text-green-400">ⓘ</span>
                                                 </h5>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-green-300">What this analyzes:</span> How this scenario changes the strategic value of your current capabilities. Some capabilities become "crown jewels" (critically valuable), others become "commodities" (less differentiating), and gaps emerge. This reveals what to invest in, divest from, or build.
                                                 </div>
                                             </div>
@@ -4200,7 +4703,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-green-300">Strategic Shift:</span> In a world where non-invasive BCIs work seamlessly, the competitive battleground shifts from hardware to software/AI. Signal processing, personalized neural models, and BCI-AI integration become the ultimate differentiators. Value soars from 65% to 95%.
                                                         </div>
                                                     </div>
@@ -4230,7 +4733,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-green-300">Strategic Shift:</span> BCIs transition from medical devices to consumer electronics (like smartphones). Success requires mass-market branding, lifestyle positioning, and competing with tech giants (Meta, Apple) - our medical device identity becomes a limitation. Jumps from 40% to 85%.
                                                         </div>
                                                     </div>
@@ -4260,7 +4763,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                             </div>
                                                         </div>
                                                         {/* Tooltip */}
-                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                        <div className="absolute left-0 top-full mt-2 w-72 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                             <span className="font-semibold text-green-300">Strategic Shift:</span> With mainstream adoption and non-invasive devices dominating, the ability to manufacture millions of consumer units at competitive prices becomes critical - this is smartphone-scale production, not boutique medical devices. Rises from 50% to 80%.
                                                         </div>
                                                     </div>
@@ -4274,7 +4777,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                         <span className="text-xs text-green-300">ⓘ</span>
                                                     </p>
                                                     {/* Tooltip */}
-                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                    <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                         <span className="font-semibold text-green-300">What this analyzes:</span> By combining external industry changes with internal capability shifts, this shows how your competitive position evolves in this scenario. It identifies new strengths (moats), emerging weaknesses (vulnerabilities), and strategic inflection points requiring decisive action.
                                                     </div>
                                                 </div>
@@ -4382,9 +4885,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 <div className="inline-block bg-gradient-to-r from-yellow-500 to-orange-500 p-4 rounded-2xl">
                                     <BarChart3 className="w-12 h-12" />
                                 </div>
-                                <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400">
-                                    Stage 8: Delivering a Verdict on Preparedness
-                                </h2>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-400 cursor-help">
+                                        Stage 8: Delivering a Verdict on Preparedness
+                                        <span className="ml-2 text-3xl text-yellow-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-yellow-300">Strategic Preparedness Assessment:</span> This stage synthesizes insights from all scenarios to deliver a holistic verdict on your organization's readiness. Unlike Stage 7's scenario-by-scenario analysis, here you assess which capabilities are robust across multiple futures and where critical gaps exist.
+                                    </div>
+                                </div>
                                 <p className="text-xl text-yellow-200 max-w-4xl mx-auto">
                                     Synthesizing our scenario analysis into a holistic assessment of strategic readiness
                                 </p>
@@ -4393,7 +4903,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                             {/* Strategic Preparedness Verdict */}
                             <div className="bg-gradient-to-br from-yellow-900/50 to-orange-900/50 p-8 rounded-xl border-2 border-yellow-400/40">
                                 <div className="text-center mb-6">
-                                    <h3 className="text-3xl font-bold text-yellow-300 mb-2">Strategic Preparedness Verdict</h3>
+                                    <div className="group relative inline-block">
+                                        <h3 className="text-3xl font-bold text-yellow-300 mb-2 cursor-help">
+                                            Strategic Preparedness Verdict
+                                            <span className="ml-2 text-2xl text-yellow-400">ⓘ</span>
+                                        </h3>
+                                        {/* Tooltip */}
+                                        <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                            <span className="font-semibold text-yellow-300">Cross-Scenario Readiness:</span> Evaluates organizational fitness across ALL future scenarios, not just one. Strong preparedness means your capabilities remain valuable in multiple futures, reducing strategic risk from uncertainty.
+                                        </div>
+                                    </div>
                                     <p className="text-yellow-100">How ready is NeuraForge X to forge the future across these four scenarios?</p>
                                 </div>
 
@@ -4406,7 +4925,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                 <span className="ml-1 text-xs text-yellow-400">ⓘ</span>
                                             </h4>
                                             {/* Tooltip */}
-                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                 <span className="font-semibold text-yellow-300">What this assesses:</span> How well your current capabilities align with what's needed across ALL scenarios. Each dimension is evaluated based on its strength AND relevance across multiple future states. High readiness = capability is strong and valuable in many scenarios. Low readiness = critical gap that exposes you to strategic risk.
                                             </div>
                                         </div>
@@ -4421,7 +4940,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-green-500 h-3 rounded-full" style={{ width: '85%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-green-300">Why Strong (85%):</span> Your deep expertise navigating FDA/CE approval processes is valuable across ALL scenarios—from slow-growth medical markets to fast-paced consumer adoption. Regulatory capability remains critical regardless of which future unfolds. This is a robust, scenario-proof strength.
                                                 </div>
                                             </div>
@@ -4434,7 +4953,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-green-500 h-3 rounded-full" style={{ width: '80%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-green-300">Why Strong (80%):</span> Your established relationships with neurosurgeons are critical for invasive BCI adoption across multiple scenarios. Even in consumer-focused futures, medical partnerships provide credibility, clinical data, and a foundation for broader market entry. A key strategic asset.
                                                 </div>
                                             </div>
@@ -4447,7 +4966,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-blue-500 h-3 rounded-full" style={{ width: '70%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-blue-300">Why Moderate (70%):</span> Your R&D is solid for medical applications but needs strengthening for scenarios demanding rapid innovation or consumer-grade products. In high-tech-progress futures (Scenarios 2 & 4), competitors with stronger innovation engines could outpace you. A capability gap to address.
                                                 </div>
                                             </div>
@@ -4460,7 +4979,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-red-500 h-3 rounded-full" style={{ width: '35%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-red-300">Why Weak (35%):</span> Your medical B2B2C model lacks consumer brand-building and mass distribution capabilities. In Scenario 4 (mass consumer adoption), this is a CRITICAL vulnerability. Even in medical-focused scenarios, building direct patient awareness is becoming important. Urgent strategic gap.
                                                 </div>
                                             </div>
@@ -4473,7 +4992,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-red-500 h-3 rounded-full" style={{ width: '40%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-red-300">Why Weak (40%):</span> Advanced AI/ML for signal processing and personalization is becoming table stakes. In fast-paced innovation scenarios (2 & 4), tech giants with deep AI expertise pose existential threats. Your hardware focus leaves you vulnerable to software-led disruption. Critical investment needed.
                                                 </div>
                                             </div>
@@ -4486,7 +5005,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                     <div className="bg-blue-500 h-3 rounded-full" style={{ width: '60%' }}></div>
                                                 </div>
                                                 {/* Tooltip */}
-                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                                <div className="absolute left-0 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                     <span className="font-semibold text-blue-300">Why Moderate (60%):</span> Your ability to pivot strategy and execute quickly is adequate for slow-moving medical scenarios but insufficient for fast-paced consumer markets. In high-uncertainty futures requiring rapid strategic shifts, your organizational speed could be a limiting factor. Room for improvement.
                                                 </div>
                                             </div>
@@ -4500,7 +5019,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                                 <span className="ml-1 text-xs text-yellow-400">ⓘ</span>
                                             </h4>
                                             {/* Tooltip */}
-                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-80 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-yellow-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                                 <span className="font-semibold text-yellow-300">What this assesses:</span> Your overall strategic fitness for each specific future scenario. This aggregates your capability strengths/weaknesses to show which futures you're best positioned for. High % = your capabilities align well with what that scenario demands. Low % = significant capability gaps for that future state.
                                             </div>
                                         </div>
@@ -4558,7 +5077,7 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             <span className="ml-1 text-xs text-red-400">ⓘ</span>
                                         </h4>
                                         {/* Tooltip */}
-                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-10">
+                                        <div className="absolute left-0 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-red-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
                                             <span className="font-semibold text-red-300">What this identifies:</span> By comparing where we are strong today against where we need to excel across all scenarios, this reveals our most dangerous capability gaps - the "blind spots" that could leave us vulnerable regardless of which future unfolds. These are urgent strategic priorities requiring immediate investment.
                                         </div>
                                     </div>
@@ -4586,7 +5105,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <Lightbulb className="w-8 h-8" />
                                     </div>
                                     <div>
-                                        <h3 className="text-xl font-bold text-indigo-300 mb-3">Key Teaching Points for Your Project:</h3>
+                                        <div className="group relative inline-block mb-3">
+                                            <h3 className="text-xl font-bold text-indigo-300 cursor-help">
+                                                Key Teaching Points for Your Project:
+                                                <span className="ml-2 text-lg text-indigo-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-indigo-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-indigo-300">Strategic Bridge:</span> This preparedness verdict serves as your analytical bridge from scenario planning (foresight) to strategic action (recommendations). The gaps you identify become the strategic priorities you'll address with flexibility initiatives.
+                                            </div>
+                                        </div>
                                         <div className="space-y-2 text-sm text-indigo-100">
                                             <p className="bg-black/20 p-3 rounded-lg">
                                                 <span className="font-semibold text-indigo-200">Synthesize, Don't Repeat:</span> Stage 8 is NOT a summary of Stage 7. It's a holistic verdict that synthesizes insights across ALL scenarios to deliver an overall preparedness assessment.
@@ -4611,7 +5139,1117 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                             {/* Next Step */}
                             <div className="bg-purple-900/30 p-5 rounded-xl border border-purple-400/30 text-center">
                                 <p className="text-purple-200 text-sm">
-                                    <span className="font-semibold text-purple-300">Next:</span> In Section 4, you'll use these insights to craft an Integrated Strategic Map with immediate priorities, flexibility initiatives, and scenario-specific pathways.
+                                    <span className="font-semibold text-purple-300">Next:</span> In Stage 9, you'll see how companies actively monitor scenario indicators in real-time to detect which future is unfolding.
+                                </p>
+                            </div>
+
+                            {/* Navigation Button */}
+                            <div className="flex justify-center mt-8">
+                                <button
+                                    onClick={() => setActiveStage(8)}
+                                    className="flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-lg font-bold text-lg hover:scale-105 transition-transform shadow-lg"
+                                >
+                                    Continue to Stage 9: Live Indicator Tracking Dashboard
+                                    <ArrowRight className="w-6 h-6" />
+                                </button>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* Stage 9: Live Indicator Tracking Dashboard */}
+                    {activeStage === 8 && (
+                        <div className="space-y-8">
+                            {/* Header */}
+                            <div className="text-center space-y-4">
+                                <div className="flex justify-center items-center gap-3 mb-4">
+                                    <div className="bg-gradient-to-r from-cyan-500 to-teal-500 p-3 rounded-xl">
+                                        <Activity className="w-10 h-10" />
+                                    </div>
+                                </div>
+                                <div className="group relative inline-block">
+                                    <h2 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-teal-400 cursor-help">
+                                        Stage 9: Live Indicator Tracking Dashboard
+                                        <span className="ml-2 text-3xl text-cyan-400">ⓘ</span>
+                                    </h2>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-cyan-300">Live Monitoring:</span> Scenario planning doesn't end with strategy development - organizations must continuously track early warning indicators to detect which future is unfolding and adjust their strategies accordingly.
+                                    </div>
+                                </div>
+                                <p className="text-xl text-cyan-200 max-w-4xl mx-auto">
+                                    Real-time monitoring of early warning indicators to detect which scenario is materializing
+                                </p>
+                            </div>
+
+                            {/* Introduction */}
+                            <div className="bg-gradient-to-br from-cyan-900/40 to-teal-900/40 p-6 rounded-xl border-2 border-cyan-400/30">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-cyan-500 p-3 rounded-xl flex-shrink-0">
+                                        <Lightbulb className="w-8 h-8" />
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="group relative">
+                                            <h3 className="text-xl font-bold text-cyan-300 cursor-help">
+                                                From Planning to Practice: How Companies Monitor Scenarios
+                                                <span className="ml-2 text-lg text-cyan-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-cyan-300">Operationalizing Scenarios:</span> Leading organizations transform scenarios from planning documents into operational dashboards that inform quarterly reviews and strategic decisions in real-time.
+                                            </div>
+                                        </div>
+                                        <p className="text-cyan-100 text-sm leading-relaxed">
+                                            This dashboard demonstrates how organizations actively track the indicators identified in Stage 7 to monitor which future is unfolding. For each scenario, we compare <span className="font-semibold text-cyan-200">current indicator levels (November 2025)</span> against <span className="font-semibold text-cyan-200">predefined trigger thresholds</span>. When current levels approach or exceed triggers, it signals that scenario is becoming more likely.
+                                        </p>
+                                        <div className="bg-black/30 p-4 rounded-lg border border-cyan-400/30">
+                                            <p className="text-xs text-cyan-200 font-semibold mb-2">Status Color Coding:</p>
+                                            <div className="grid grid-cols-3 gap-2 text-xs">
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-3 h-3 bg-green-500 rounded"></div>
+                                                    <span className="text-green-200">Low (&lt;65% of trigger)</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-3 h-3 bg-yellow-500 rounded"></div>
+                                                    <span className="text-yellow-200">Medium (65-85% of trigger)</span>
+                                                </div>
+                                                <div className="flex items-center gap-2">
+                                                    <div className="w-3 h-3 bg-orange-500 rounded"></div>
+                                                    <span className="text-orange-200">High (&gt;85% of trigger)</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Scenario 1: The Hesitant Dawn */}
+                            <div className="bg-gradient-to-br from-blue-900/40 to-indigo-900/40 p-8 rounded-xl border-2 border-blue-400/50">
+                                <div className="mb-6">
+                                    <h3 className="text-3xl font-bold text-blue-300 mb-2 flex items-center gap-3">
+                                        <span className="bg-blue-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 1</span>
+                                        The Hesitant Dawn
+                                    </h3>
+                                    <p className="text-lg text-blue-200 italic mb-4">When society and science move slowly together</p>
+                                    <div className="flex justify-center mb-4">
+                                        <img
+                                            src={scenario1Image}
+                                            alt="The Hesitant Dawn"
+                                            className="rounded-lg border-2 border-blue-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px' }}
+                                        />
+                                    </div>
+                                    <h4 className="text-xl font-semibold text-blue-200 flex items-center gap-2">
+                                        Indicator Dashboard
+                                        <div className="relative group">
+                                            <Info className="w-4 h-4 text-blue-300 cursor-help" />
+                                            <div className="absolute left-0 top-6 w-64 bg-black/95 text-blue-100 text-xs p-3 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                Visual representation of key metrics that signal this scenario is materializing
+                                            </div>
+                                        </div>
+                                    </h4>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {/* Left Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                                            Monitored Indicators & Triggers
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-blue-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-blue-100 text-xs p-3 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Key metrics being tracked with defined thresholds that signal this scenario is becoming reality
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">1. Public Opposition Index</p>
+                                            <p className="text-xs text-blue-100 mb-2">Composite of protests, petitions, and negative sentiment regarding BCI deployment (0-100)</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;70/100</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">2. Data Breach Incidents</p>
+                                            <p className="text-xs text-blue-100 mb-2">Number of reported BCI neural data security breaches or privacy violations annually</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;15 major incidents/year</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">3. Regulatory Moratorium Coverage</p>
+                                            <p className="text-xs text-blue-100 mb-2">% of global GDP from markets with BCI deployment restrictions or bans</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;30% of GDP</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">4. Venture Funding Decline</p>
+                                            <p className="text-xs text-blue-100 mb-2">Year-over-year percentage decrease in BCI startup investment</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;40% decline</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-blue-200 mb-3 flex items-center gap-2">
+                                            Current Status vs Trigger Threshold (Nov 2025)
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-blue-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-blue-100 text-xs p-3 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Real-time comparison showing how close current values are to trigger thresholds. Hover over bars to see historical trend data.
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-blue-200">Opposition Index</span>
+                                                <span className="text-xs text-blue-300">✓ 49% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 34/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '49%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-blue-100 text-xs p-4 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-blue-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">18/100</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">24/100</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">29/100</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">34/100</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-blue-400/30 text-yellow-300 flex items-center gap-1">
+                                                            <span>⚠️ +89% increase (growing opposition)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 70/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-blue-200">Data Breaches</span>
+                                                <span className="text-xs text-green-300">✓ 33% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 5 incidents/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '33%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-blue-100 text-xs p-4 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-blue-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">1 incident/year</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">2 incidents/year</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">3 incidents/year</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">5 incidents/year</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-blue-400/30 text-yellow-300 flex items-center gap-1">
+                                                            <span>⚠️ +400% increase (security concerns rising)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 15 incidents/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-blue-200">Moratorium Coverage</span>
+                                                <span className="text-xs text-green-300">✓ 47% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 14% of GDP</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '47%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-blue-100 text-xs p-4 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-blue-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">6% of GDP</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">8% of GDP</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">11% of GDP</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">14% of GDP</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-blue-400/30 text-yellow-300 flex items-center gap-1">
+                                                            <span>⚠️ +133% growth (restrictions spreading)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 30% of GDP</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-blue-200">Funding Decline</span>
+                                                <span className="text-xs text-green-300">✓ 38% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: -15% YoY</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '38%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-blue-100 text-xs p-4 rounded-lg border border-blue-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-blue-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">+5% YoY</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">+2% YoY</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">-5% YoY</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">-15% YoY</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-blue-400/30 text-red-300 flex items-center gap-1">
+                                                            <span>📉 From growth to decline (investor caution)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: -40% YoY</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-green-900/40 p-4 rounded-lg border-2 border-green-400/50 mt-4">
+                                            <p className="text-sm font-semibold text-green-200 mb-2">Scenario Likelihood: LOW (35%)</p>
+                                            <p className="text-xs text-green-100">No major trigger points reached. Sentiment remains cautiously optimistic about BCI technology.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Scenario 2: The Forbidden Frontier */}
+                            <div className="bg-gradient-to-br from-purple-900/40 to-indigo-900/40 p-8 rounded-xl border-2 border-purple-400/50">
+                                <div className="mb-6">
+                                    <h3 className="text-3xl font-bold text-purple-300 mb-2 flex items-center gap-3">
+                                        <span className="bg-purple-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 2</span>
+                                        The Forbidden Frontier
+                                    </h3>
+                                    <p className="text-lg text-purple-200 italic mb-4">When technology outraces societal acceptance</p>
+                                    <div className="flex justify-center mb-4">
+                                        <img
+                                            src={scenario2Image}
+                                            alt="The Forbidden Frontier"
+                                            className="rounded-lg border-2 border-purple-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px' }}
+                                        />
+                                    </div>
+                                    <h4 className="text-xl font-semibold text-purple-200 flex items-center gap-2">
+                                        Indicator Dashboard
+                                        <div className="relative group">
+                                            <Info className="w-4 h-4 text-purple-300 cursor-help" />
+                                            <div className="absolute left-0 top-6 w-64 bg-black/95 text-purple-100 text-xs p-3 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                Visual representation of key metrics that signal this scenario is materializing
+                                            </div>
+                                        </div>
+                                    </h4>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {/* Left Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-purple-200 mb-3 flex items-center gap-2">
+                                            Monitored Indicators & Triggers
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-purple-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-purple-100 text-xs p-3 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Key metrics being tracked with defined thresholds that signal this scenario is becoming reality
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">1. Regulatory Framework Completeness</p>
+                                            <p className="text-xs text-blue-100 mb-2">% of major markets (US, EU, China, Japan) with comprehensive BCI legislation enacted</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;75% coverage</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">2. International Standards Adoption</p>
+                                            <p className="text-xs text-blue-100 mb-2">Number of countries implementing WHO/IEEE BCI safety and data governance standards</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;40 countries</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">3. Public Trust in Governance</p>
+                                            <p className="text-xs text-blue-100 mb-2">Survey data: % believing regulations adequately protect BCI users' rights and data</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &gt;65% trust</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-blue-400/30">
+                                            <p className="font-semibold text-blue-300 mb-1">4. Market Access Speed (Time to Approval)</p>
+                                            <p className="text-xs text-blue-100 mb-2">Average months from clinical trials to market authorization in major markets</p>
+                                            <p className="text-xs text-blue-200"><span className="font-semibold">Trigger Threshold:</span> &lt;24 months (faster approval)</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-purple-200 mb-3 flex items-center gap-2">
+                                            Current Status vs Trigger Threshold (Nov 2025)
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-purple-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-purple-100 text-xs p-3 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Real-time comparison showing how close current values are to trigger thresholds. Hover over bars to see historical trend data.
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Framework Completeness</span>
+                                                <span className="text-xs text-orange-300">🔥 87% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Current: 65% coverage</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '87%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-purple-100 text-xs p-4 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-purple-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">45% coverage</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">52% coverage</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">58% coverage</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-orange-300">65% coverage</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-purple-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +44% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-red-200">Trigger: 75% coverage</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-red-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Standards Adoption</span>
+                                                <span className="text-xs text-yellow-300">⚠ 70% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-yellow-200">Current: 28 countries</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-yellow-500 h-4 rounded-full" style={{width: '70%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-purple-100 text-xs p-4 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-purple-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">15 countries</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">19 countries</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">24 countries</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-yellow-300">28 countries</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-purple-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +87% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 40 countries</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Public Trust</span>
+                                                <span className="text-xs text-green-300">✓ 60% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 39% trust</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '60%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-purple-100 text-xs p-4 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-purple-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">22% trust</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">28% trust</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">34% trust</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">39% trust</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-purple-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +77% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 65% trust</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Approval Speed</span>
+                                                <span className="text-xs text-green-300">✓ 42% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 34 months</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '42%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-purple-100 text-xs p-4 rounded-lg border border-purple-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-purple-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">52 months</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">45 months</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">39 months</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">34 months</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-purple-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📉 -35% reduction (faster approvals)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 24 months</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-yellow-900/40 p-4 rounded-lg border-2 border-yellow-400/50 mt-4">
+                                            <p className="text-sm font-semibold text-yellow-200 mb-2">Scenario Likelihood: MODERATE (65%)</p>
+                                            <p className="text-xs text-yellow-100">Regulatory frameworks progressing quickly. Watch EU BCI Act implementation and G7 harmonization efforts.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Scenario 3: The Waiting World */}
+                            <div className="bg-gradient-to-br from-green-900/40 to-teal-900/40 p-8 rounded-xl border-2 border-green-400/50">
+                                <div className="mb-6">
+                                    <h3 className="text-3xl font-bold text-green-300 mb-2 flex items-center gap-3">
+                                        <span className="bg-green-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 3</span>
+                                        The Waiting World
+                                    </h3>
+                                    <p className="text-lg text-green-200 italic mb-4">When society is ready but technology lags behind</p>
+                                    <div className="flex justify-center mb-4">
+                                        <img
+                                            src={scenario3Image}
+                                            alt="The Waiting World"
+                                            className="rounded-lg border-2 border-green-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px' }}
+                                        />
+                                    </div>
+                                    <h4 className="text-xl font-semibold text-green-200 flex items-center gap-2">
+                                        Indicator Dashboard
+                                        <div className="relative group">
+                                            <Info className="w-4 h-4 text-green-300 cursor-help" />
+                                            <div className="absolute left-0 top-6 w-64 bg-black/95 text-green-100 text-xs p-3 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                Visual representation of key metrics that signal this scenario is materializing
+                                            </div>
+                                        </div>
+                                    </h4>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {/* Left Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-green-200 mb-3 flex items-center gap-2">
+                                            Monitored Indicators & Triggers
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-green-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-green-100 text-xs p-3 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Key metrics being tracked with defined thresholds that signal this scenario is becoming reality
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-green-400/30">
+                                            <p className="font-semibold text-green-300 mb-1">1. BCI Price Premium vs. Avg Income</p>
+                                            <p className="text-xs text-green-100 mb-2">Ratio of entry-level BCI cost to median annual income in developed markets</p>
+                                            <p className="text-xs text-green-200"><span className="font-semibold">Trigger Threshold:</span> &gt;0.8x annual income</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-green-400/30">
+                                            <p className="font-semibold text-green-300 mb-1">2. Healthcare Access Gap Index</p>
+                                            <p className="text-xs text-green-100 mb-2">Measures disparity in BCI availability between top/bottom income quintiles (0-100 scale)</p>
+                                            <p className="text-xs text-green-200"><span className="font-semibold">Trigger Threshold:</span> &gt;65/100</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-green-400/30">
+                                            <p className="font-semibold text-green-300 mb-1">3. Employment Bias Reports</p>
+                                            <p className="text-xs text-green-100 mb-2">Annual documented cases of BCI-based discrimination in hiring/promotion (EEOC filings)</p>
+                                            <p className="text-xs text-green-200"><span className="font-semibold">Trigger Threshold:</span> &gt;500 cases/year</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-green-400/30">
+                                            <p className="font-semibold text-green-300 mb-1">4. Public Concern Score</p>
+                                            <p className="text-xs text-green-100 mb-2">Sentiment analysis of media coverage and social discourse about BCI inequality (0-100)</p>
+                                            <p className="text-xs text-green-200"><span className="font-semibold">Trigger Threshold:</span> &gt;60/100 (high concern)</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-green-200 mb-3 flex items-center gap-2">
+                                            Current Status vs Trigger Threshold (Nov 2025)
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-green-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-green-100 text-xs p-3 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Real-time comparison showing how close current values are to trigger thresholds. Hover over bars to see historical trend data.
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-green-200">Price Premium</span>
+                                                <span className="text-xs text-orange-300">🔥 92% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Current: 0.74x income</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '92%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-green-100 text-xs p-4 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-green-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">0.55x income</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">0.62x income</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">0.68x income</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-orange-300">0.74x income</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-green-400/30 text-red-300 flex items-center gap-1">
+                                                            <span>⚠️ +35% increase (affordability declining)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-red-200">Trigger: 0.8x income</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-red-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Access Gap Index</span>
+                                                <span className="text-xs text-yellow-300">⚠ 72% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-yellow-200">Current: 47/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-yellow-500 h-4 rounded-full" style={{width: '72%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-green-100 text-xs p-4 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-green-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">28/100</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">35/100</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">41/100</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-yellow-300">47/100</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-green-400/30 text-red-300 flex items-center gap-1">
+                                                            <span>⚠️ +68% increase (inequality widening)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 65/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Employment Bias</span>
+                                                <span className="text-xs text-green-300">✓ 38% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: 190 cases/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '38%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-green-100 text-xs p-4 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-green-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">45 cases/year</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">98 cases/year</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">142 cases/year</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">190 cases/year</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-green-400/30 text-red-300 flex items-center gap-1">
+                                                            <span>⚠️ +322% increase (discrimination rising)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 500 cases/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-purple-200">Public Concern</span>
+                                                <span className="text-xs text-yellow-300">⚠ 68% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-yellow-200">Current: 41/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-yellow-500 h-4 rounded-full" style={{width: '68%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-green-100 text-xs p-4 rounded-lg border border-green-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-green-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">22/100</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">30/100</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">36/100</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-yellow-300">41/100</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-green-400/30 text-red-300 flex items-center gap-1">
+                                                            <span>⚠️ +86% increase (concern growing)</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 60/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div className="bg-orange-900/40 p-4 rounded-lg border-2 border-orange-400/50 mt-4">
+                                            <p className="text-sm font-semibold text-orange-200 mb-2">Scenario Likelihood: MODERATE-HIGH (72%)</p>
+                                            <p className="text-xs text-orange-100">Price premium nearing trigger. Monitor insurance coverage decisions and public subsidy programs closely.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Scenario 4: The Augmented Age */}
+                            <div className="bg-gradient-to-br from-pink-900/40 to-purple-900/40 p-8 rounded-xl border-2 border-pink-400/50">
+                                <div className="mb-6">
+                                    <h3 className="text-3xl font-bold text-pink-300 mb-2 flex items-center gap-3">
+                                        <span className="bg-pink-500 px-3 py-1 rounded-lg text-white text-xl">Scenario 4</span>
+                                        The Augmented Age
+                                    </h3>
+                                    <p className="text-lg text-pink-200 italic mb-4">When technology and society advance in harmony</p>
+                                    <div className="flex justify-center mb-4">
+                                        <img
+                                            src={scenario4Image}
+                                            alt="The Augmented Age"
+                                            className="rounded-lg border-2 border-pink-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px' }}
+                                        />
+                                    </div>
+                                    <h4 className="text-xl font-semibold text-pink-200 flex items-center gap-2">
+                                        Indicator Dashboard
+                                        <div className="relative group">
+                                            <Info className="w-4 h-4 text-pink-300 cursor-help" />
+                                            <div className="absolute left-0 top-6 w-64 bg-black/95 text-pink-100 text-xs p-3 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                Visual representation of key metrics that signal this scenario is materializing
+                                            </div>
+                                        </div>
+                                    </h4>
+                                </div>
+
+                                <div className="grid md:grid-cols-2 gap-6">
+                                    {/* Left Column: Indicator Definitions */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-pink-200 mb-3 flex items-center gap-2">
+                                            Monitored Indicators & Triggers
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-pink-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-pink-100 text-xs p-3 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Key metrics being tracked with defined thresholds that signal this scenario is becoming reality
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-pink-400/30">
+                                            <p className="font-semibold text-pink-300 mb-1">1. BCI Patent Filings (Annual)</p>
+                                            <p className="text-xs text-pink-100 mb-2">Measures innovation momentum and R&D investment in brain-computer interface technology globally</p>
+                                            <p className="text-xs text-pink-200"><span className="font-semibold">Trigger Threshold:</span> &gt;500 patents/year</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-pink-400/30">
+                                            <p className="font-semibold text-pink-300 mb-1">2. Public Acceptance Rate</p>
+                                            <p className="text-xs text-pink-100 mb-2">Percentage of population expressing willingness to use BCI technology (global survey data)</p>
+                                            <p className="text-xs text-pink-200"><span className="font-semibold">Trigger Threshold:</span> &gt;60% favorable</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-pink-400/30">
+                                            <p className="font-semibold text-pink-300 mb-1">3. Regulatory Support Score</p>
+                                            <p className="text-xs text-pink-100 mb-2">Composite index measuring policy environment across major markets (FDA, EMA, etc.)</p>
+                                            <p className="text-xs text-pink-200"><span className="font-semibold">Trigger Threshold:</span> &gt;70/100</p>
+                                        </div>
+
+                                        <div className="bg-black/30 p-4 rounded-lg border border-pink-400/30">
+                                            <p className="font-semibold text-pink-300 mb-1">4. Corporate Investment (Billions USD)</p>
+                                            <p className="text-xs text-pink-100 mb-2">Annual VC/PE investment plus M&A activity in BCI and neurotechnology sector</p>
+                                            <p className="text-xs text-pink-200"><span className="font-semibold">Trigger Threshold:</span> &gt;$8B/year</p>
+                                        </div>
+                                    </div>
+
+                                    {/* Right Column: Live Tracking Bars */}
+                                    <div className="space-y-4">
+                                        <h4 className="font-semibold text-pink-200 mb-3 flex items-center gap-2">
+                                            Current Status vs Trigger Threshold (Nov 2025)
+                                            <div className="relative group">
+                                                <Info className="w-4 h-4 text-pink-300 cursor-help" />
+                                                <div className="absolute left-0 top-6 w-64 bg-black/95 text-pink-100 text-xs p-3 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-50 shadow-xl">
+                                                    Real-time comparison showing how close current values are to trigger thresholds. Hover over bars to see historical trend data.
+                                                </div>
+                                            </div>
+                                        </h4>
+
+                                        {/* Indicator 1 */}
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-pink-200">BCI Patent Filings</span>
+                                                <span className="text-xs text-yellow-300">⚠ 78% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-yellow-200">Current: 390/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-yellow-500 h-4 rounded-full" style={{width: '78%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-pink-100 text-xs p-4 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-pink-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">180 patents/year</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">245 patents/year</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">310 patents/year</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-yellow-300">390 patents/year</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-pink-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +117% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 500/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Indicator 2 */}
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-pink-200">Public Acceptance</span>
+                                                <span className="text-xs text-yellow-300">⚠ 75% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-yellow-200">Current: 45% favorable</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-yellow-500 h-4 rounded-full" style={{width: '75%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-pink-100 text-xs p-4 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-pink-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">28% favorable</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">35% favorable</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">40% favorable</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-yellow-300">45% favorable</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-pink-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +61% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: 60% favorable</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Indicator 3 */}
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-pink-200">Regulatory Support</span>
+                                                <span className="text-xs text-orange-300">🔥 88% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Current: 62/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '88%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-pink-100 text-xs p-4 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-pink-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">38/100</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">48/100</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">55/100</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-orange-300">62/100</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-pink-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +63% improvement since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-red-200">Trigger: 70/100</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-red-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Indicator 4 */}
+                                        <div className="bg-black/40 p-4 rounded-lg">
+                                            <div className="flex justify-between mb-2">
+                                                <span className="text-sm font-semibold text-pink-200">Corporate Investment</span>
+                                                <span className="text-xs text-green-300">✓ 56% to trigger</span>
+                                            </div>
+                                            <div className="space-y-2">
+                                                <div className="relative group">
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-green-200">Current: $4.5B/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4 cursor-help">
+                                                        <div className="bg-green-500 h-4 rounded-full" style={{width: '56%'}}></div>
+                                                    </div>
+                                                    <div className="absolute left-0 top-full mt-2 w-72 bg-black/95 text-pink-100 text-xs p-4 rounded-lg border border-pink-400/50 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none z-20 shadow-xl">
+                                                        <p className="font-semibold text-pink-300 mb-2">Historical Trend (2022-2025)</p>
+                                                        <div className="space-y-1 text-xs">
+                                                            <div className="flex justify-between"><span>2022:</span> <span className="font-semibold">$1.8B/year</span></div>
+                                                            <div className="flex justify-between"><span>2023:</span> <span className="font-semibold">$2.7B/year</span></div>
+                                                            <div className="flex justify-between"><span>2024:</span> <span className="font-semibold">$3.5B/year</span></div>
+                                                            <div className="flex justify-between"><span>2025:</span> <span className="font-semibold text-green-300">$4.5B/year</span></div>
+                                                        </div>
+                                                        <p className="mt-2 pt-2 border-t border-pink-400/30 text-green-300 flex items-center gap-1">
+                                                            <span>📈 +150% growth since 2022</span>
+                                                        </p>
+                                                    </div>
+                                                </div>
+                                                <div>
+                                                    <div className="flex justify-between text-xs mb-1">
+                                                        <span className="text-orange-200">Trigger: $8B/year</span>
+                                                    </div>
+                                                    <div className="w-full bg-gray-700 rounded-full h-4">
+                                                        <div className="bg-orange-500 h-4 rounded-full" style={{width: '100%'}}></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        {/* Overall Assessment */}
+                                        <div className="bg-yellow-900/40 p-4 rounded-lg border-2 border-yellow-400/50 mt-4">
+                                            <p className="text-sm font-semibold text-yellow-200 mb-2">Scenario Likelihood: MODERATE-HIGH (70%)</p>
+                                            <p className="text-xs text-yellow-100">Regulatory environment approaching trigger levels. Watch for FDA breakthrough designations and EU AI Act implementation.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Overall Dashboard Summary */}
+                            <div className="bg-gradient-to-br from-cyan-900/40 to-blue-900/40 p-8 rounded-xl border-2 border-cyan-400/50">
+                                <div className="group relative mb-6">
+                                    <h3 className="text-2xl font-bold text-cyan-300 flex items-center gap-3 cursor-help">
+                                        <Activity className="w-8 h-8" />
+                                        Overall Scenario Monitoring Summary
+                                        <span className="ml-2 text-2xl text-cyan-400">ⓘ</span>
+                                    </h3>
+                                    {/* Tooltip */}
+                                    <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-cyan-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                        <span className="font-semibold text-cyan-300">Comparative Analysis:</span> This dashboard synthesizes all indicator data to show the relative likelihood of each scenario, enabling executives to prioritize strategies that hedge across multiple probable futures.
+                                    </div>
+                                </div>
+                                <div className="grid md:grid-cols-4 gap-4">
+                                    <div className="bg-black/40 p-4 rounded-lg border border-pink-400/50">
+                                        <p className="text-xs text-gray-300 mb-1">The Augmented Age</p>
+                                        <p className="text-2xl font-bold text-yellow-300">70%</p>
+                                        <p className="text-xs text-yellow-200">MODERATE-HIGH</p>
+                                    </div>
+                                    <div className="bg-black/40 p-4 rounded-lg border border-green-400/50">
+                                        <p className="text-xs text-gray-300 mb-1">The Waiting World</p>
+                                        <p className="text-2xl font-bold text-orange-300">72%</p>
+                                        <p className="text-xs text-orange-200">MODERATE-HIGH</p>
+                                    </div>
+                                    <div className="bg-black/40 p-4 rounded-lg border border-purple-400/50">
+                                        <p className="text-xs text-gray-300 mb-1">The Forbidden Frontier</p>
+                                        <p className="text-2xl font-bold text-yellow-300">65%</p>
+                                        <p className="text-xs text-yellow-200">MODERATE</p>
+                                    </div>
+                                    <div className="bg-black/40 p-4 rounded-lg border border-blue-400/50">
+                                        <p className="text-xs text-gray-300 mb-1">The Hesitant Dawn</p>
+                                        <p className="text-2xl font-bold text-green-300">35%</p>
+                                        <p className="text-xs text-green-200">LOW</p>
+                                    </div>
+                                </div>
+                                <div className="mt-6 bg-black/30 p-5 rounded-lg border border-cyan-400/30">
+                                    <p className="text-sm font-semibold text-cyan-200 mb-2">Strategic Insight (November 2025):</p>
+                                    <p className="text-sm text-cyan-100">
+                                        The data suggests <span className="font-semibold text-orange-300">The Waiting World</span> and <span className="font-semibold text-yellow-300">The Augmented Age</span> are the most likely scenarios to materialize in the near term. Both show multiple indicators approaching trigger thresholds, particularly around pricing/access and regulatory frameworks. Companies should prioritize strategies that perform well across both scenarios: <span className="font-semibold">value-tier product development</span>, <span className="font-semibold">insurance partnerships</span>, and <span className="font-semibold">proactive regulatory engagement</span>.
+                                    </p>
+                                </div>
+                            </div>
+
+                            {/* Key Teaching Points */}
+                            <div className="bg-gradient-to-br from-indigo-900/40 to-purple-900/40 p-6 rounded-xl border-2 border-indigo-400/30">
+                                <div className="flex items-start gap-4">
+                                    <div className="bg-indigo-500 p-3 rounded-xl">
+                                        <Lightbulb className="w-8 h-8" />
+                                    </div>
+                                    <div>
+                                        <div className="group relative mb-3">
+                                            <h3 className="text-xl font-bold text-indigo-300 cursor-help">
+                                                Key Teaching Points for Your Project:
+                                                <span className="ml-2 text-lg text-indigo-400">ⓘ</span>
+                                            </h3>
+                                            {/* Tooltip */}
+                                            <div className="absolute left-1/2 -translate-x-1/2 top-full mt-2 w-96 bg-gray-900 text-white text-xs p-3 rounded-lg shadow-xl border border-indigo-400/50 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-50">
+                                                <span className="font-semibold text-indigo-300">Pedagogical Guidance:</span> These insights help students understand how to make scenario planning actionable and valuable for executives, transforming theoretical frameworks into practical management tools.
+                                            </div>
+                                        </div>
+                                        <div className="space-y-2 text-sm text-indigo-100">
+                                            <p className="bg-black/20 p-3 rounded-lg">
+                                                <span className="font-semibold text-indigo-200">Make It Operational:</span> Stage 9 demonstrates that scenario planning isn't a one-time exercise - it's an ongoing monitoring system. Show how companies can track indicators quarterly or monthly.
+                                            </p>
+                                            <p className="bg-black/20 p-3 rounded-lg">
+                                                <span className="font-semibold text-indigo-200">Use Real Data:</span> Your dashboard should use actual, verifiable metrics where possible (patent filings, market data, sentiment surveys). Specify your data sources.
+                                            </p>
+                                            <p className="bg-black/20 p-3 rounded-lg">
+                                                <span className="font-semibold text-indigo-200">Set Clear Triggers:</span> For each indicator, define the specific threshold that would signal the scenario is materializing. Be quantitative, not qualitative.
+                                            </p>
+                                            <p className="bg-black/20 p-3 rounded-lg">
+                                                <span className="font-semibold text-indigo-200">Visualize Status:</span> Use simple visual elements (bars, colors, percentages) to make the monitoring dashboard instantly readable by executives.
+                                            </p>
+                                            <p className="bg-black/20 p-3 rounded-lg">
+                                                <span className="font-semibold text-indigo-200">Provide Strategic Context:</span> Connect indicator levels to specific actions. If indicator X reaches 80% of trigger, what should the company do?
+                                            </p>
+                                            <p className="bg-indigo-900/50 p-4 rounded-lg border-2 border-indigo-400/50 font-semibold text-white">
+                                                🎯 This stage transforms scenario planning from abstract futures into a concrete management tool that informs quarterly strategy reviews and board discussions.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            {/* Completion Note */}
+                            <div className="bg-purple-900/30 p-5 rounded-xl border border-purple-400/30 text-center">
+                                <p className="text-purple-200 text-lg font-semibold mb-2">
+                                    🎉 Congratulations! You've completed all 9 stages of comprehensive scenario planning.
+                                </p>
+                                <p className="text-purple-300 text-sm">
+                                    You now have a complete framework: from defining scope to monitoring scenarios in real-time. Use this methodology to build robust strategic foresight for any organization.
                                 </p>
                             </div>
                         </div>
