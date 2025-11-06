@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Brain, Calendar, Search, Network, Zap, AlertCircle, TrendingUp, Globe, Lightbulb, Target, BarChart3, Shield, ArrowRight, CheckCircle, XCircle, AlertTriangle, Activity, Info } from 'lucide-react';
+import bciImage from './1s4WgzpPUGAmqOVjcUPzH-1.png';
 import stage2BrainImage from './Bci-Dashboard-Images/Stage1_Focal_Issue_Cover_Image.png';
 
 const BCIScenarioPlanning = () => {
@@ -551,6 +552,14 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         <span className="italic">Comprehensive pedagogical demonstration of scenario planning methodology in practice</span><br />
                                         <span className="text-xs mt-2 block">© 2025 Gustomind.ai. All Rights Reserved.</span>
                                     </p>
+                                </div>
+                                <div className="mt-6">
+                                    <img
+                                        src={bciImage}
+                                        alt="Brain-Computer Interface Visualization"
+                                        className="mx-auto rounded-lg border-2 border-purple-400/50 shadow-xl"
+                                        style={{ maxWidth: '800px', width: '100%' }}
+                                    />
                                 </div>
                             </div>
 
