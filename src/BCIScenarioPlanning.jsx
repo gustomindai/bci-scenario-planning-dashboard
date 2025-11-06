@@ -8,6 +8,8 @@ import scenario4Image from './Bci-Dashboard-Images/Scenario4.png';
 import stage7Image from './Bci-Dashboard-Images/Stage7_Impact-Assessment.jpg';
 import stage2BrainImage from './Bci-Dashboard-Images/Stage1_Focal_Issue_Cover_Image.png';
 import stage5Image from './Bci-Dashboard-Images/Stage5.png';
+import axis1Image from './Bci-Dashboard-Images/Stage5_axis1.png';
+import axis2Image from './Bci-Dashboard-Images/Stage5_axis2.png';
 
 const BCIScenarioPlanning = () => {
     const [activeStage, setActiveStage] = useState(-1);
@@ -2157,16 +2159,6 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                 <p className="text-xl text-purple-200">The Strategic Choice: From Linchpins to Axes</p>
                             </div>
 
-                            {/* Stage 5 Neural Network Image */}
-                            <div className="flex justify-center my-6">
-                                <img
-                                    src={stage5Image}
-                                    alt="Neural Network Visualization - Strategic Decision Points"
-                                    className="rounded-xl border-2 border-purple-400/50 shadow-2xl"
-                                    style={{ maxWidth: '800px', width: '100%' }}
-                                />
-                            </div>
-
                             {/* The Strategic Decision Framework */}
                             <div className="bg-gradient-to-br from-indigo-900/50 to-purple-900/50 p-8 rounded-xl border-2 border-purple-400/50">
                                 <div className="text-center mb-6">
@@ -2335,6 +2327,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                         </div>
                                     </div>
 
+                                    {/* Axis 1 Image - Visual Anchor */}
+                                    <div className="flex justify-center my-8">
+                                        <img
+                                            src={axis1Image}
+                                            alt="Axis 1: Public Acceptance Spectrum"
+                                            className="rounded-lg border-2 border-pink-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px', width: '100%' }}
+                                        />
+                                    </div>
+
                                     <div className="space-y-3">
                                         <div className="bg-black/30 p-3 rounded-lg">
                                             <p className="font-semibold text-pink-200 mb-1 text-sm">Factor Name:</p>
@@ -2388,6 +2390,16 @@ The BCI detects the onset of sleep and powers down to minimal monitoring. Tomorr
                                             </div>
                                             <p className="text-sm text-green-200">{chosenAxes.axis2.dimension}</p>
                                         </div>
+                                    </div>
+
+                                    {/* Axis 2 Image - Visual Anchor */}
+                                    <div className="flex justify-center my-8">
+                                        <img
+                                            src={axis2Image}
+                                            alt="Axis 2: Non-Invasive BCI Breakthroughs"
+                                            className="rounded-lg border-2 border-green-400/50 shadow-xl"
+                                            style={{ maxWidth: '600px', width: '100%' }}
+                                        />
                                     </div>
 
                                     <div className="space-y-3">
