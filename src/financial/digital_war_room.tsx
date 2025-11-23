@@ -2004,8 +2004,8 @@ export default function DigitalWarRoom() {
 
             {/* Region Labels Inside Chart */}
             <div style={{ position: 'absolute', top: '60px', left: '120px', pointerEvents: 'none' }}>
-              <div style={{ backgroundColor: 'rgba(59, 130, 246, 0.9)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '12px', fontWeight: 'bold' }}>
-                US
+              <div style={{ backgroundColor: 'rgba(34, 197, 94, 0.9)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '12px', fontWeight: 'bold' }}>
+                UK
               </div>
             </div>
             <div style={{ position: 'absolute', top: '150px', left: '120px', pointerEvents: 'none' }}>
@@ -2014,8 +2014,8 @@ export default function DigitalWarRoom() {
               </div>
             </div>
             <div style={{ position: 'absolute', top: '240px', left: '120px', pointerEvents: 'none' }}>
-              <div style={{ backgroundColor: 'rgba(34, 197, 94, 0.9)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '12px', fontWeight: 'bold' }}>
-                UK
+              <div style={{ backgroundColor: 'rgba(59, 130, 246, 0.9)', color: 'white', padding: '4px 8px', borderRadius: '4px', fontSize: '12px', fontWeight: 'bold' }}>
+                US
               </div>
             </div>
           </div>
