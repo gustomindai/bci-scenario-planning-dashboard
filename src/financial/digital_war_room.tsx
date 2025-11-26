@@ -975,7 +975,7 @@ export default function DigitalWarRoom() {
           </p>
 
           <a
-            href="https://gustomind.ai/ultimate-ai-mastery"
+            href="https://www.gustomind.ai/products/ultimate-ai-bundle"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-lg font-bold text-base transition-all hover:scale-105 mb-3"
@@ -1105,7 +1105,7 @@ export default function DigitalWarRoom() {
                     <li>✓ Customization for any business vertical</li>
                   </ul>
                   <a
-                    href="https://gustomind.ai/ultimate-ai-mastery"
+                    href="https://www.gustomind.ai/products/ultimate-ai-bundle"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 px-4 py-2 rounded-lg font-semibold text-sm transition-all hover:scale-105"
@@ -2642,7 +2642,7 @@ export default function DigitalWarRoom() {
 
             <div className="text-center">
               <a
-                href="https://gustomind.ai/ultimate-ai-mastery"
+                href="https://www.gustomind.ai/products/ultimate-ai-bundle"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-8 py-4 rounded-lg font-bold text-lg transition-all hover:scale-105"
