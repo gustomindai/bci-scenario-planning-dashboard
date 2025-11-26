@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { LineChart, Line, AreaChart, Area, PieChart, Pie, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { TrendingUp, TrendingDown, AlertCircle, Sparkles, CheckCircle, Info, X, ExternalLink, Download, Printer, ArrowLeftRight } from 'lucide-react';
 
@@ -325,6 +325,14 @@ export default function DigitalWarRoom() {
   const [showInfoModal, setShowInfoModal] = useState(false);
   const [showYoYComparison, setShowYoYComparison] = useState(false);
   const [compareScenarios, setCompareScenarios] = useState(false);
+
+  // Set page title
+  useEffect(() => {
+    document.title = 'Digital War Room - Financial Dashboard | GustoMind.ai Lab';
+    return () => {
+      document.title = 'GustoMind.ai Lab';
+    };
+  }, []);
 
   // Interactive Scenario Builder State
   const [customRevenueGrowth, setCustomRevenueGrowth] = useState(0);
