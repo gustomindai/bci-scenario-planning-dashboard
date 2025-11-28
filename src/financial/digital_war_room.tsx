@@ -126,6 +126,8 @@ const InfoTooltip: React.FC<InfoTooltipProps> = ({ text, className = '' }) => {
 interface DataRow {
   date: Date;
   dateStr: string;
+  monthYearLabel: string;
+  monthYearLabelLong: string;
   year: number;
   month: number;
   sessions_total: number;
@@ -187,11 +189,16 @@ const parseCSV = (csvText: string): DataRow[] => {
           row.dateStr = value;
           row.year = parseInt(year);
           row.month = parseInt(month);
+          // Create formatted labels: "Jan 21" (short) and "January 2021" (long)
+          row.monthYearLabel = row.date.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' });
+          row.monthYearLabelLong = row.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
         } else {
           row.date = new Date(value);
           row.dateStr = value;
           row.year = row.date.getFullYear();
           row.month = row.date.getMonth() + 1;
+          row.monthYearLabel = row.date.toLocaleDateString('en-GB', { month: 'short', year: '2-digit' });
+          row.monthYearLabelLong = row.date.toLocaleDateString('en-GB', { month: 'long', year: 'numeric' });
         }
       } else {
         row[header] = value === '' ? 0 : parseFloat(value) || 0;
@@ -1577,10 +1584,9 @@ export default function DigitalWarRoom() {
             <LineChart data={filteredData}>
               <CartesianGrid strokeDasharray="3 3" stroke="#2d2661" />
               <XAxis
-                dataKey="dateStr"
+                dataKey="monthYearLabel"
                 stroke="#64748b"
                 tick={{ fontSize: 11, fill: '#94A3B8' }}
-                tickFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'short', year: '2-digit' })}
               />
               <YAxis yAxisId="left" stroke="#64748b" tick={{ fontSize: 11, fill: '#94A3B8' }} tickFormatter={fmtGBP} />
               <YAxis yAxisId="right" orientation="right" stroke="#64748b" tick={{ fontSize: 11, fill: '#94A3B8' }} tickFormatter={fmtPercent} />
@@ -1588,7 +1594,6 @@ export default function DigitalWarRoom() {
                 contentStyle={{ backgroundColor: '#1a1547', border: '1px solid #2d2661', borderRadius: '0.5rem', color: '#F1F5F9' }}
                 labelStyle={{ color: '#F1F5F9' }}
                 itemStyle={{ color: '#F1F5F9' }}
-                labelFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                 formatter={(value: any, name: string) => {
                   if (name === 'Gross Sales' || name === 'Ad Spend') return [fmtGBP(value), name];
                   return [fmtPercent(value), name];
@@ -1916,17 +1921,16 @@ export default function DigitalWarRoom() {
               <LineChart data={filteredData}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#2d2661" />
                 <XAxis
-                  dataKey="dateStr"
+                  dataKey="monthYearLabel"
                   stroke="#64748b"
                   tick={{ fontSize: 11, fill: '#94A3B8' }}
-                  tickFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'short', year: '2-digit' })}
                 />
-                <YAxis 
+                <YAxis
                   yAxisId="left"
-                  stroke="#64748b" 
-                  tick={{ fontSize: 11, fill: '#94A3B8' }} 
+                  stroke="#64748b"
+                  tick={{ fontSize: 11, fill: '#94A3B8' }}
                   domain={[0, 20]}
-                  tickFormatter={fmtPercent} 
+                  tickFormatter={fmtPercent}
                   label={{ value: 'Discount Rate %', angle: -90, position: 'insideLeft', style: { fill: COLORS.amber } }}
                 />
                 <YAxis 
@@ -1943,7 +1947,6 @@ export default function DigitalWarRoom() {
                   labelStyle={{ color: '#F1F5F9' }}
                   itemStyle={{ color: '#F1F5F9' }}
                   formatter={(value: any, name: string) => [fmtPercent(value), name]}
-                  labelFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                 />
                 <Legend wrapperStyle={{ color: '#F1F5F9' }} />
                 <Line yAxisId="left" type="monotone" dataKey="discountRate" stroke={COLORS.amber} strokeWidth={2.5} dot={false} name="Discount Rate %" />
@@ -1990,17 +1993,15 @@ export default function DigitalWarRoom() {
                 </defs>
                 <CartesianGrid strokeDasharray="3 3" stroke="#2d2661" />
                 <XAxis
-                  dataKey="dateStr"
+                  dataKey="monthYearLabel"
                   stroke="#64748b"
                   tick={{ fontSize: 11, fill: '#94A3B8' }}
-                  tickFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'short', year: '2-digit' })}
                 />
                 <YAxis stroke="#64748b" tick={{ fontSize: 11, fill: '#94A3B8' }} tickFormatter={(v) => `${v}%`} />
                 <Tooltip
                   contentStyle={{ backgroundColor: '#1a1547', border: '1px solid #2d2661', borderRadius: '0.5rem', color: '#F1F5F9' }}
                   labelStyle={{ color: '#F1F5F9' }}
                   itemStyle={{ color: '#F1F5F9' }}
-                  labelFormatter={(v) => new Date(v).toLocaleDateString('en-GB', { month: 'long', year: 'numeric' })}
                   formatter={(value: any) => `${fmtDecimal(value)}%`}
                 />
                 <Legend wrapperStyle={{ color: '#F1F5F9' }} />
